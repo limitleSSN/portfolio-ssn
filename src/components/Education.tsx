@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
-import { GraduationCap, Calendar, School, Library } from "lucide-react";
+import { GraduationCap, Calendar, School, Library, Code } from "lucide-react";
 
 const EducationTimeline = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -37,6 +37,14 @@ const EducationTimeline = () => {
     },
     {
       id: 2,
+      years: "2024 – Present",
+      degree: "Full Stack Development (MERN Stack)",
+      institution: "NXTWAVE",
+      icon: <Code size={24} className="text-kunalblue" />,
+      details: "Learning modern web development with MongoDB, Express, React, and Node.js to build full-stack applications.",
+    },
+    {
+      id: 3,
       years: "2022",
       degree: "Intermediate",
       institution: "Kamlapati Boys Inter College, Varanasi, Uttar Pradesh",
@@ -46,7 +54,7 @@ const EducationTimeline = () => {
       details: "Completed my intermediate education with a focus on science and mathematics.",
     },
     {
-      id: 3,
+      id: 4,
       years: "2020",
       degree: "High School",
       institution: "Maa Saraswati Intermediar College, Varanasi, Uttar Pradesh",
