@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
-import { Linkedin, Users, Award, BookOpen } from "lucide-react";
+import { Linkedin, Users, Award, BookOpen, Instagram } from "lucide-react";
 
 const Social = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -97,7 +97,7 @@ const Social = () => {
                   ))}
                 </div>
 
-                <div className="mt-8 text-center">
+                <div className="mt-8 flex flex-wrap justify-center gap-4">
                   <a
                     href="https://www.linkedin.com/in/kunal-vishwakarma-975b26326"
                     target="_blank"
@@ -106,6 +106,16 @@ const Social = () => {
                   >
                     <Linkedin size={20} className="mr-2" />
                     Connect on LinkedIn
+                  </a>
+                  
+                  <a
+                    href="https://www.instagram.com/kunal_vish_08?igsh=MXZ1eHF0Zjg4bGMwMA=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-3 rounded-full bg-gradient-to-r from-[#405DE6] via-[#E1306C] to-[#FFDC80] text-white font-medium transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(225,48,108,0.5)] inline-flex items-center"
+                  >
+                    <Instagram size={20} className="mr-2" />
+                    Follow on Instagram
                   </a>
                 </div>
               </div>

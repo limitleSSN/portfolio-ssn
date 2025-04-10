@@ -1,5 +1,6 @@
+
 import { useEffect, useRef, useState } from "react";
-import { Mail, Phone, Github, Linkedin, Send } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Send, Instagram } from "lucide-react";
 
 const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -126,6 +127,12 @@ const Contact = () => {
       value: "Kunal Vishwakarma",
       link: "https://www.linkedin.com/in/kunal-vishwakarma-975b26326",
     },
+    {
+      icon: <Instagram className="text-kunalpink" size={20} />,
+      label: "Instagram",
+      value: "kunal_vish_08",
+      link: "https://www.instagram.com/kunal_vish_08?igsh=MXZ1eHF0Zjg4bGMwMA==",
+    },
   ];
 
   return (
@@ -200,6 +207,15 @@ const Contact = () => {
                       aria-label="LinkedIn"
                     >
                       <Linkedin className="text-white" size={20} />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/kunal_vish_08?igsh=MXZ1eHF0Zjg4bGMwMA=="
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-gradient-to-r from-[#405DE6] via-[#E1306C] to-[#FFDC80] w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="text-white" size={20} />
                     </a>
                   </div>
                 </div>
