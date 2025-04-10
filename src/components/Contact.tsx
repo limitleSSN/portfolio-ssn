@@ -1,6 +1,5 @@
-
 import { useEffect, useRef, useState } from "react";
-import { Mail, Phone, GitHub, Linkedin, Send } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Send } from "lucide-react";
 
 const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -116,7 +115,7 @@ const Contact = () => {
       link: "tel:+917985177849",
     },
     {
-      icon: <GitHub className="text-kunalpink" size={20} />,
+      icon: <Github className="text-kunalpink" size={20} />,
       label: "GitHub",
       value: "github.com/dashboard",
       link: "https://github.com/dashboard",
@@ -191,7 +190,7 @@ const Contact = () => {
                       className="bg-gray-800 hover:bg-gray-700 w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110"
                       aria-label="GitHub"
                     >
-                      <GitHub className="text-white" size={20} />
+                      <Github className="text-white" size={20} />
                     </a>
                     <a
                       href="https://www.linkedin.com/in/kunal-vishwakarma-975b26326"
