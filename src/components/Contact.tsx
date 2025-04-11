@@ -1,8 +1,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Mail, Phone, Github, Linkedin, Send, Instagram } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
+  const { toast } = useToast();
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -82,23 +84,53 @@ const Contact = () => {
     return valid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (validate()) {
       setIsSubmitting(true);
       
-      // Simulate form submission
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setSubmitSuccess(true);
-        setFormData({ name: "", email: "", message: "" });
+      try {
+        // Send email using EmailJS or similar service
+        const response = await fetch("https://formsubmit.co/kunalvishwakarma208@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          }),
+        });
         
-        // Reset success message after 3 seconds
-        setTimeout(() => {
-          setSubmitSuccess(false);
-        }, 3000);
-      }, 1500);
+        if (response.ok) {
+          setSubmitSuccess(true);
+          setFormData({ name: "", email: "", message: "" });
+          toast({
+            title: "Message sent!",
+            description: "Your message has been sent successfully. I'll get back to you soon!",
+            variant: "default",
+          });
+          
+          // Reset success message after 3 seconds
+          setTimeout(() => {
+            setSubmitSuccess(false);
+          }, 3000);
+        } else {
+          throw new Error("Failed to send message");
+        }
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Failed to send your message. Please try again later.",
+          variant: "destructive",
+        });
+        console.error("Error sending message:", error);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
