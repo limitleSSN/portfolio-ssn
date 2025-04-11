@@ -46,16 +46,6 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [currentText, currentWordIndex, isDeleting, typingSpeed, words]);
 
-  // Floating elements animation
-  const floatingElements = [
-    { id: 1, icon: "⚛️", delay: "0s", size: "text-2xl", position: "top-20 left-[15%]" },
-    { id: 2, icon: "🔥", delay: "1.5s", size: "text-3xl", position: "top-40 right-[20%]" },
-    { id: 3, icon: "💻", delay: "2.5s", size: "text-xl", position: "bottom-32 left-[25%]" },
-    { id: 4, icon: "🚀", delay: "3.5s", size: "text-2xl", position: "bottom-24 right-[25%]" },
-    { id: 5, icon: "⚙️", delay: "4s", size: "text-xl", position: "top-1/2 left-[10%]" },
-    { id: 6, icon: "📱", delay: "1s", size: "text-2xl", position: "top-1/3 right-[10%]" },
-  ];
-
   return (
     <section id="home" className="min-h-screen relative flex flex-col justify-center items-center overflow-hidden">
       <div
@@ -72,20 +62,6 @@ const Hero = () => {
           <div className="absolute top-1/4 right-1/4 w-48 h-48 bg-purple-500/10 rounded-full filter blur-3xl animate-float" style={{ animationDelay: "1s" }} />
           <div className="absolute bottom-1/3 left-1/3 w-36 h-36 bg-cyan-500/10 rounded-full filter blur-3xl animate-float" style={{ animationDelay: "2s" }} />
         </div>
-
-        {/* Floating elements */}
-        {floatingElements.map((element) => (
-          <div 
-            key={element.id}
-            className={`absolute ${element.position} ${element.size} opacity-0 animate-float`}
-            style={{ 
-              animationDelay: element.delay,
-              animation: "float 6s ease-in-out infinite, fade-in 1s ease-out forwards"
-            }}
-          >
-            {element.icon}
-          </div>
-        ))}
 
         <div className="container mx-auto px-4 text-center z-10 relative">
           <div className="max-w-3xl mx-auto">
