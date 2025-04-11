@@ -168,6 +168,32 @@ export default {
 					'50%': {
 						transform: 'translateY(-10px)'
 					}
+				},
+				'scale-in-line': {
+					'0%': {
+						transform: 'scaleX(0)'
+					},
+					'100%': {
+						transform: 'scaleX(1)'
+					}
+				},
+				'rotate-glow': {
+					'0%': {
+						transform: 'rotate(0deg)'
+					},
+					'100%': {
+						transform: 'rotate(360deg)'
+					}
+				},
+				'pulse-glow': {
+					'0%, 100%': {
+						opacity: '0.6',
+						transform: 'scale(1)'
+					},
+					'50%': {
+						opacity: '1',
+						transform: 'scale(1.05)'
+					}
 				}
 			},
 			animation: {
@@ -180,7 +206,10 @@ export default {
 				'typing': 'typing 3.5s steps(40, end), blink 0.75s step-end infinite',
 				'border-pulse': 'border-pulse 1.5s infinite',
 				'slide-up': 'slide-up 0.5s ease-out',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'scale-in-line': 'scale-in-line 1.5s forwards',
+				'rotate-glow': 'rotate-glow 12s linear infinite',
+				'pulse-glow': 'pulse-glow 3s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
