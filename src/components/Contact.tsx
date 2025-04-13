@@ -3,21 +3,19 @@ import { useEffect, useRef, useState } from "react";
 import ContactInfo from "./contact/ContactInfo";
 import ContactForm from "./contact/ContactForm";
 import { motion } from "framer-motion";
-import { Particles, initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim";
+import { Engine } from "tsparticles-engine";
 
 const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [init, setInit] = useState(false);
   
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
-  }, []);
+  const particlesInit = async (engine: Engine) => {
+    await loadSlim(engine);
+    setInit(true);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -47,58 +45,57 @@ const Contact = () => {
     >
       {/* 3D Particles Background */}
       <div className="absolute inset-0 z-0">
-        {init && (
-          <Particles
-            id="tsparticles"
-            options={{
-              background: {
-                color: {
-                  value: "transparent",
-                },
+        <Particles
+          id="tsparticles"
+          init={particlesInit}
+          options={{
+            background: {
+              color: {
+                value: "transparent",
               },
-              fpsLimit: 60,
-              particles: {
-                color: {
-                  value: ["#f54298", "#4894ff"],
-                },
-                links: {
-                  color: "#ffffff",
-                  distance: 150,
-                  enable: true,
-                  opacity: 0.2,
-                  width: 1,
-                },
-                move: {
-                  direction: "none",
-                  enable: true,
-                  outModes: {
-                    default: "bounce",
-                  },
-                  random: true,
-                  speed: 1,
-                  straight: false,
-                },
-                number: {
-                  density: {
-                    enable: true,
-                    area: 800,
-                  },
-                  value: 40,
-                },
-                opacity: {
-                  value: 0.3,
-                },
-                shape: {
-                  type: "circle",
-                },
-                size: {
-                  value: { min: 1, max: 3 },
-                },
+            },
+            fpsLimit: 60,
+            particles: {
+              color: {
+                value: ["#f54298", "#4894ff"],
               },
-              detectRetina: true,
-            }}
-          />
-        )}
+              links: {
+                color: "#ffffff",
+                distance: 150,
+                enable: true,
+                opacity: 0.2,
+                width: 1,
+              },
+              move: {
+                direction: "none",
+                enable: true,
+                outModes: {
+                  default: "bounce",
+                },
+                random: true,
+                speed: 1,
+                straight: false,
+              },
+              number: {
+                density: {
+                  enable: true,
+                  area: 800,
+                },
+                value: 40,
+              },
+              opacity: {
+                value: 0.3,
+              },
+              shape: {
+                type: "circle",
+              },
+              size: {
+                value: { min: 1, max: 3 },
+              },
+            },
+            detectRetina: true,
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
