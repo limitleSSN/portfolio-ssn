@@ -4,15 +4,15 @@ import ContactInfo from "./contact/ContactInfo";
 import ContactForm from "./contact/ContactForm";
 import { motion } from "framer-motion";
 import Particles from "react-tsparticles";
+import { Engine } from "@tsparticles/engine";
 import { loadFull } from "tsparticles";
-import type { Engine } from "tsparticles-engine";
 
 const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   
   const particlesInit = async (engine: Engine) => {
-    await loadFull(engine);
+    await loadFull(engine as any);
   };
 
   useEffect(() => {
