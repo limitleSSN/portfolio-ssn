@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { motion } from "framer-motion";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -69,7 +71,18 @@ const ContactForm = () => {
       setIsSubmitting(true);
       
       try {
-        // Send email using EmailJS or similar service
+        // Save message to Supabase
+        const { error: supabaseError } = await supabase
+          .from('messages')
+          .insert({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message
+          });
+          
+        if (supabaseError) throw supabaseError;
+        
+        // Also send email using FormSubmit service
         const response = await fetch("https://formsubmit.co/kunalvishwakarma208@gmail.com", {
           method: "POST",
           headers: {
@@ -83,29 +96,29 @@ const ContactForm = () => {
           }),
         });
         
-        if (response.ok) {
-          setSubmitSuccess(true);
-          setFormData({ name: "", email: "", message: "" });
-          toast({
-            title: "Message sent!",
-            description: "Your message has been sent successfully. I'll get back to you soon!",
-            variant: "default",
-          });
-          
-          // Reset success message after 3 seconds
-          setTimeout(() => {
-            setSubmitSuccess(false);
-          }, 3000);
-        } else {
-          throw new Error("Failed to send message");
+        if (!response.ok) {
+          throw new Error("Failed to send email");
         }
+        
+        setSubmitSuccess(true);
+        setFormData({ name: "", email: "", message: "" });
+        toast({
+          title: "Message sent!",
+          description: "Your message has been sent successfully. I'll get back to you soon!",
+          variant: "default",
+        });
+        
+        // Reset success message after 3 seconds
+        setTimeout(() => {
+          setSubmitSuccess(false);
+        }, 3000);
       } catch (error) {
+        console.error("Error sending message:", error);
         toast({
           title: "Error",
           description: "Failed to send your message. Please try again later.",
           variant: "destructive",
         });
-        console.error("Error sending message:", error);
       } finally {
         setIsSubmitting(false);
       }
@@ -113,23 +126,37 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-gray-900/80 rounded-2xl p-6 border border-gray-800 h-full">
-      <h3 className="text-2xl font-semibold mb-8 gradient-heading">
+    <motion.div 
+      className="bg-gray-900/80 rounded-2xl p-6 border border-gray-800 h-full perspective-1000 transform-3d"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.02, rotate: 0 }}
+    >
+      <h3 className="text-2xl font-semibold mb-8 gradient-heading relative">
         Send Me a Message
+        <span className="absolute -bottom-2 left-0 w-24 h-1 bg-gradient-to-r from-kunalpink to-kunalblue"></span>
       </h3>
 
       {submitSuccess ? (
-        <div className="bg-green-500/20 border border-green-500 rounded-lg p-4 text-center animate-fade-in">
+        <motion.div 
+          className="bg-green-500/20 border border-green-500 rounded-lg p-4 text-center"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+        >
           <p className="text-green-400 mb-2">Message sent successfully!</p>
           <p className="text-gray-300">Thank you for reaching out. I'll get back to you soon.</p>
-        </div>
+        </motion.div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="name" className="block text-gray-400 mb-2">
               Your Name
             </label>
-            <input
+            <motion.input
+              whileFocus={{ scale: 1.02, borderColor: "#f54298" }}
+              transition={{ duration: 0.2 }}
               type="text"
               id="name"
               name="name"
@@ -137,7 +164,7 @@ const ContactForm = () => {
               onChange={handleChange}
               className={`w-full bg-gray-800 border ${
                 errors.name ? "border-red-500" : "border-gray-700"
-              } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-kunalpink`}
+              } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-kunalpink shadow-lg`}
               placeholder="Enter your name"
             />
             {errors.name && (
@@ -149,7 +176,9 @@ const ContactForm = () => {
             <label htmlFor="email" className="block text-gray-400 mb-2">
               Email Address
             </label>
-            <input
+            <motion.input
+              whileFocus={{ scale: 1.02, borderColor: "#f54298" }}
+              transition={{ duration: 0.2 }}
               type="email"
               id="email"
               name="email"
@@ -157,7 +186,7 @@ const ContactForm = () => {
               onChange={handleChange}
               className={`w-full bg-gray-800 border ${
                 errors.email ? "border-red-500" : "border-gray-700"
-              } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-kunalpink`}
+              } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-kunalpink shadow-lg`}
               placeholder="Enter your email"
             />
             {errors.email && (
@@ -169,7 +198,9 @@ const ContactForm = () => {
             <label htmlFor="message" className="block text-gray-400 mb-2">
               Message
             </label>
-            <textarea
+            <motion.textarea
+              whileFocus={{ scale: 1.02, borderColor: "#f54298" }}
+              transition={{ duration: 0.2 }}
               id="message"
               name="message"
               value={formData.message}
@@ -177,22 +208,24 @@ const ContactForm = () => {
               rows={5}
               className={`w-full bg-gray-800 border ${
                 errors.message ? "border-red-500" : "border-gray-700"
-              } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-kunalpink resize-none`}
+              } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-kunalpink resize-none shadow-lg`}
               placeholder="Enter your message"
-            ></textarea>
+            ></motion.textarea>
             {errors.message && (
               <p className="text-red-500 text-sm mt-1">{errors.message}</p>
             )}
           </div>
 
-          <button
+          <motion.button
             type="submit"
             disabled={isSubmitting}
             className={`w-full py-3 rounded-lg font-medium flex items-center justify-center transition-all ${
               isSubmitting
                 ? "bg-gray-700 cursor-not-allowed"
-                : "bg-gradient-to-r from-kunalpink to-kunalblue hover:shadow-[0_0_20px_rgba(245,66,152,0.5)] hover:scale-[1.02]"
+                : "bg-gradient-to-r from-kunalpink to-kunalblue hover:shadow-[0_0_20px_rgba(245,66,152,0.5)]"
             }`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             {isSubmitting ? (
               <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -205,10 +238,10 @@ const ContactForm = () => {
                 Send Message
               </>
             )}
-          </button>
+          </motion.button>
         </form>
       )}
-    </div>
+    </motion.div>
   );
 };
 

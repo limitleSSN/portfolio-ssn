@@ -2,10 +2,18 @@
 import { useEffect, useRef, useState } from "react";
 import ContactInfo from "./contact/ContactInfo";
 import ContactForm from "./contact/ContactForm";
+import { motion } from "framer-motion";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
+import type { Engine } from "tsparticles-engine";
 
 const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  
+  const particlesInit = async (engine: Engine) => {
+    await loadFull(engine);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,13 +39,73 @@ const Contact = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-gray-900 to-kunalblack"
+      className="py-20 bg-gradient-to-b from-gray-900 to-kunalblack relative overflow-hidden"
     >
-      <div className="container mx-auto px-4">
+      {/* 3D Particles Background */}
+      <div className="absolute inset-0 z-0">
+        <Particles
+          id="tsparticles"
+          init={particlesInit}
+          options={{
+            background: {
+              color: {
+                value: "transparent",
+              },
+            },
+            fpsLimit: 60,
+            particles: {
+              color: {
+                value: ["#f54298", "#4894ff"],
+              },
+              links: {
+                color: "#ffffff",
+                distance: 150,
+                enable: true,
+                opacity: 0.2,
+                width: 1,
+              },
+              move: {
+                direction: "none",
+                enable: true,
+                outModes: {
+                  default: "bounce",
+                },
+                random: true,
+                speed: 1,
+                straight: false,
+              },
+              number: {
+                density: {
+                  enable: true,
+                  area: 800,
+                },
+                value: 40,
+              },
+              opacity: {
+                value: 0.3,
+              },
+              shape: {
+                type: "circle",
+              },
+              size: {
+                value: { min: 1, max: 3 },
+              },
+            },
+            detectRetina: true,
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold mb-12 text-center"
+            initial={{ opacity: 0, y: -20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7 }}
+          >
             <span className="gradient-heading">Connect</span> With Me
-          </h2>
+          </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div

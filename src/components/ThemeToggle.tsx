@@ -2,6 +2,7 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Switch } from "@/components/ui/switch";
+import { motion } from "framer-motion";
 
 const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -35,15 +36,34 @@ const ThemeToggle = () => {
   };
 
   return (
-    <div className="flex items-center space-x-2">
-      <Sun className={`h-4 w-4 ${isDarkMode ? 'text-gray-400' : 'text-kunalpink'}`} />
+    <motion.div 
+      className="flex items-center space-x-2"
+      whileHover={{ scale: 1.05 }}
+    >
+      <motion.div
+        animate={{ 
+          scale: isDarkMode ? 0.8 : 1.2,
+          opacity: isDarkMode ? 0.5 : 1
+        }}
+      >
+        <Sun className={`h-4 w-4 ${isDarkMode ? 'text-gray-400' : 'text-kunalpink'}`} />
+      </motion.div>
+      
       <Switch
         checked={isDarkMode}
         onCheckedChange={toggleTheme}
         aria-label="Toggle theme"
       />
-      <Moon className={`h-4 w-4 ${isDarkMode ? 'text-kunalblue' : 'text-gray-400'}`} />
-    </div>
+      
+      <motion.div
+        animate={{ 
+          scale: isDarkMode ? 1.2 : 0.8,
+          opacity: isDarkMode ? 1 : 0.5
+        }}
+      >
+        <Moon className={`h-4 w-4 ${isDarkMode ? 'text-kunalblue' : 'text-gray-400'}`} />
+      </motion.div>
+    </motion.div>
   );
 };
 
