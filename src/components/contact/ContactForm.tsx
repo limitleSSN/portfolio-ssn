@@ -82,8 +82,10 @@ const ContactForm = () => {
           
         if (supabaseError) throw supabaseError;
         
-        // Also send email using FormSubmit service
-        const response = await fetch("https://formsubmit.co/kunalvishwakarma208@gmail.com", {
+        // Send email using FormSubmit service with correct configuration
+        const formSubmitEndpoint = "https://formsubmit.co/ajax/kunalvishwakarma208@gmail.com";
+        
+        const response = await fetch(formSubmitEndpoint, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -93,12 +95,18 @@ const ContactForm = () => {
             name: formData.name,
             email: formData.email,
             message: formData.message,
+            _subject: "New Contact Form Submission",
+            _captcha: "false",
           }),
         });
         
+        const responseData = await response.json();
+        
         if (!response.ok) {
-          throw new Error("Failed to send email");
+          throw new Error(responseData.message || "Failed to send email");
         }
+        
+        console.log("Email submission response:", responseData);
         
         setSubmitSuccess(true);
         setFormData({ name: "", email: "", message: "" });
