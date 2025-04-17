@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -94,6 +95,27 @@
   }
 
   .nav-link.active {
-    @apply text-white after:scale-x-100;
+    @apply text-white;
+  }
+  
+  /* Toggle Animation Classes */
+  .toggle-btn {
+    @apply relative w-12 h-6 rounded-full bg-gray-700 flex items-center px-1 cursor-pointer transition-colors duration-300;
+  }
+  
+  .toggle-btn.active {
+    @apply bg-kunalblue;
+  }
+  
+  .toggle-slider {
+    @apply absolute w-4 h-4 rounded-full bg-white transition-transform duration-300 transform;
+  }
+  
+  .toggle-slider.active {
+    @apply translate-x-6;
+  }
+  
+  .toggle-text {
+    @apply ml-3 text-sm text-gray-300;
   }
 }

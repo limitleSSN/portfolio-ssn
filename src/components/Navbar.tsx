@@ -1,5 +1,7 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -60,9 +62,15 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className={`nav-link ${activeSection === link.href.slice(1) ? "active" : ""}`}
+                className={cn(
+                  "nav-link relative px-2 py-1 transition-all duration-300",
+                  activeSection === link.href.slice(1) ? "active" : ""
+                )}
               >
                 {link.name}
+                {activeSection === link.href.slice(1) && (
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-kunalpink transition-all duration-300 animate-scale-in-line" />
+                )}
               </a>
             ))}
           </div>
@@ -72,7 +80,7 @@ const Navbar = () => {
         <div className="flex md:hidden items-center space-x-4">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-gray-200 hover:text-white focus:outline-none"
+            className="p-2 text-gray-200 hover:text-white focus:outline-none transition-transform duration-300 hover:scale-110"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -90,10 +98,18 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-xl font-medium text-gray-200 hover:text-white"
+              className={cn(
+                "text-xl font-medium relative px-2 py-1 transition-all duration-300",
+                activeSection === link.href.slice(1) 
+                  ? "text-kunalpink kunalpink-glow" 
+                  : "text-gray-200 hover:text-white"
+              )}
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.name}
+              {activeSection === link.href.slice(1) && (
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-kunalpink animate-scale-in-line" />
+              )}
             </a>
           ))}
         </div>
