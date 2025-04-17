@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -38,7 +37,7 @@ export default {
 					foreground: 'hsl(var(--destructive-foreground))'
 				},
 				muted: {
-					DEFAULT: 'hsl(var(--muted))',
+					DEFAULT: 'hsl(var(--muted-foreground))',
 					foreground: 'hsl(var(--muted-foreground))'
 				},
 				accent: {
@@ -217,11 +216,5 @@ export default {
 			},
 		}
 	},
-	plugins: [
-		require("tailwindcss-animate"),
-		function({ addVariant }) {
-			// Add a custom 'light' variant
-			addVariant('light', '.light &');
-		}
-	],
+	plugins: [require("tailwindcss-animate")],
 } satisfies Config;

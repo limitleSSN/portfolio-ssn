@@ -1,55 +1,25 @@
 
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, { createContext, useContext } from "react";
 
-type Theme = "dark" | "light";
-
+// Create a minimal context that doesn't actually do anything
 interface ThemeContextType {
-  theme: Theme;
+  theme: "dark";
   toggleTheme: () => void;
-  isDark: boolean;
+  isDark: true;
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextType>({
+  theme: "dark",
+  toggleTheme: () => {},
+  isDark: true,
+});
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  // Check if user has a preferred theme from local storage or system preference
-  const getInitialTheme = (): Theme => {
-    if (typeof window !== "undefined" && window.localStorage) {
-      const storedPrefs = window.localStorage.getItem("color-theme");
-      if (typeof storedPrefs === "string") {
-        return storedPrefs as Theme;
-      }
-      
-      const userMedia = window.matchMedia("(prefers-color-scheme: dark)");
-      if (userMedia.matches) {
-        return "dark";
-      }
-    }
-    
-    // Default to dark theme
-    return "dark";
-  };
-
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
-  const isDark = theme === "dark";
-
-  const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    localStorage.setItem("color-theme", newTheme);
-  };
-
-  useEffect(() => {
-    // Update class on the body element when theme changes
-    const root = window.document.body;
-    root.classList.remove("dark", "light");
-    root.classList.add(theme);
-  }, [theme]);
-
+  // Always use dark theme
   const value = {
-    theme,
-    toggleTheme,
-    isDark,
+    theme: "dark" as const,
+    toggleTheme: () => {},
+    isDark: true,
   };
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
@@ -57,9 +27,5 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
 // Custom hook to use the theme context
 export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (context === undefined) {
-    throw new Error("useTheme must be used within a ThemeProvider");
-  }
-  return context;
+  return useContext(ThemeContext);
 };
