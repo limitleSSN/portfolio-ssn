@@ -47,7 +47,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-kunalblack/80 dark:bg-kunalblack/80 light:bg-white/80 backdrop-blur-md shadow-md py-2"
+          ? "bg-kunalblack/80 backdrop-blur-md shadow-md py-2 dark:bg-kunalblack/80 light:bg-white/80"
           : "bg-transparent py-4"
       }`}
     >
@@ -94,9 +94,9 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed inset-0 top-[60px] bg-kunalblack/95 dark:bg-kunalblack/95 light:bg-white/95 backdrop-blur-lg transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed inset-0 top-[60px] backdrop-blur-lg transform transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        } dark:bg-kunalblack/95 light:bg-white/95`}
       >
         <div className="flex flex-col justify-center items-center h-full space-y-6 py-8">
           {navLinks.map((link) => (
@@ -107,7 +107,7 @@ const Navbar = () => {
                 "text-xl font-medium relative px-2 py-1 transition-all duration-300",
                 activeSection === link.href.slice(1) 
                   ? "text-kunalpink kunalpink-glow" 
-                  : "text-gray-200 dark:text-gray-200 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-kunalblack"
+                  : "dark:text-gray-200 light:text-gray-700 dark:hover:text-white light:hover:text-kunalblack"
               )}
               onClick={() => setMobileMenuOpen(false)}
             >

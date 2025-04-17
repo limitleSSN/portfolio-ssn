@@ -217,5 +217,11 @@ export default {
 			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		function({ addVariant }) {
+			// Add a custom 'light' variant
+			addVariant('light', '.light &');
+		}
+	],
 } satisfies Config;

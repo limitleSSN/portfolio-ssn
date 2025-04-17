@@ -56,7 +56,15 @@
   }
 
   body {
-    @apply bg-kunalblack text-white dark:bg-kunalblack dark:text-white light:bg-white light:text-kunalblack transition-colors duration-300;
+    @apply bg-kunalblack text-white transition-colors duration-300;
+  }
+
+  body.dark {
+    @apply bg-kunalblack text-white;
+  }
+
+  body.light {
+    @apply bg-white text-kunalblack;
   }
 
   html {

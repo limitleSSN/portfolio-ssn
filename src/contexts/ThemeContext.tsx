@@ -40,8 +40,8 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   useEffect(() => {
-    // Update data-theme attribute on document.documentElement when theme changes
-    const root = window.document.documentElement;
+    // Update class on the body element when theme changes
+    const root = window.document.body;
     root.classList.remove("dark", "light");
     root.classList.add(theme);
   }, [theme]);
