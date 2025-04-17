@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,13 +47,13 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-kunalblack/80 backdrop-blur-md shadow-md py-2"
+          ? "bg-kunalblack/80 dark:bg-kunalblack/80 light:bg-white/80 backdrop-blur-md shadow-md py-2"
           : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         <a href="#home" className="text-2xl font-bold gradient-heading">
-          Kunal<span className="text-white">.</span>
+          Kunal<span className="text-white dark:text-white light:text-kunalblack">.</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -74,10 +75,14 @@ const Navbar = () => {
               </a>
             ))}
           </div>
+          
+          {/* Theme Toggle for Desktop */}
+          <ThemeToggle />
         </div>
 
         {/* Mobile Navigation Toggle */}
         <div className="flex md:hidden items-center space-x-4">
+          <ThemeToggle />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 text-gray-200 hover:text-white focus:outline-none transition-transform duration-300 hover:scale-110"
@@ -89,7 +94,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed inset-0 top-[60px] bg-kunalblack/95 backdrop-blur-lg transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed inset-0 top-[60px] bg-kunalblack/95 dark:bg-kunalblack/95 light:bg-white/95 backdrop-blur-lg transform transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -102,7 +107,7 @@ const Navbar = () => {
                 "text-xl font-medium relative px-2 py-1 transition-all duration-300",
                 activeSection === link.href.slice(1) 
                   ? "text-kunalpink kunalpink-glow" 
-                  : "text-gray-200 hover:text-white"
+                  : "text-gray-200 dark:text-gray-200 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-kunalblack"
               )}
               onClick={() => setMobileMenuOpen(false)}
             >

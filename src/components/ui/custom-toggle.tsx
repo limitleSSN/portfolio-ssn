@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 type ToggleProps = {
@@ -10,6 +10,8 @@ type ToggleProps = {
   size?: "sm" | "md" | "lg";
   color?: "pink" | "blue" | "default";
   disabled?: boolean;
+  icon?: React.ReactNode;
+  labelPosition?: "left" | "right";
 };
 
 const CustomToggle = ({
@@ -20,8 +22,14 @@ const CustomToggle = ({
   size = "md",
   color = "default",
   disabled = false,
+  icon,
+  labelPosition = "right",
 }: ToggleProps) => {
   const [isChecked, setIsChecked] = useState(defaultChecked);
+
+  useEffect(() => {
+    setIsChecked(defaultChecked);
+  }, [defaultChecked]);
 
   const handleToggle = () => {
     if (disabled) return;
@@ -56,7 +64,10 @@ const CustomToggle = ({
   };
 
   return (
-    <div className={cn("flex items-center", className)}>
+    <div className={cn("flex items-center", className, labelPosition === "left" ? "flex-row-reverse" : "flex-row")}>
+      {label && (
+        <span className={cn("text-sm text-gray-300", labelPosition === "left" ? "mr-3" : "ml-3")}>{label}</span>
+      )}
       <button
         type="button"
         onClick={handleToggle}
@@ -74,15 +85,14 @@ const CustomToggle = ({
       >
         <span
           className={cn(
-            "absolute rounded-full bg-white transition-transform duration-300 transform",
+            "absolute rounded-full bg-white transition-transform duration-300 transform flex items-center justify-center",
             sliderSizes[size],
             isChecked ? sliderTransforms[size] : "translate-x-0"
           )}
-        />
+        >
+          {icon && <span className="text-xs">{icon}</span>}
+        </span>
       </button>
-      {label && (
-        <span className="ml-3 text-sm text-gray-300">{label}</span>
-      )}
     </div>
   );
 };
