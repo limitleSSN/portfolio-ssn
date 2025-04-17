@@ -16,7 +16,7 @@ const ThemeContext = createContext<ThemeContextType>({
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   // Always use dark theme
-  const value = {
+  const value: ThemeContextType = {
     theme: "dark" as const,
     toggleTheme: () => {},
     isDark: true,
