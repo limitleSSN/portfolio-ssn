@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, User, Code } from "lucide-react";
 import FloatingSocials from "./FloatingSocials";
@@ -5,7 +6,6 @@ import FloatingSocials from "./FloatingSocials";
 const Hero = () => {
   const typingRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [isBlurred, setIsBlurred] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -45,17 +45,12 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [currentText, currentWordIndex, isDeleting, typingSpeed, words]);
 
-  const handleArrowClick = () => {
-    setIsBlurred(true);
-    setTimeout(() => setIsBlurred(false), 1000);
-  };
-
   return (
     <section id="home" className="min-h-screen relative flex flex-col justify-center items-center overflow-hidden">
       <div
         className={`transition-all duration-1000 ${
           isVisible ? "opacity-100" : "opacity-0"
-        } ${isBlurred ? "blur-sm" : ""}`}
+        }`}
       >
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-kunalblack/90" />
@@ -121,7 +116,6 @@ const Hero = () => {
         <a 
           href="#about" 
           className="text-gray-400 hover:text-white relative group"
-          onClick={handleArrowClick}
         >
           <ArrowDown size={24} className="group-hover:animate-pulse" />
           <span className="absolute w-8 h-8 bg-kunalpink/20 rounded-full -inset-2 transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
