@@ -38,7 +38,8 @@ const ThreeBackground = () => {
           position={position as [number, number, number]}
           args={[0.1, 16, 16]}
         >
-          <meshStandardMaterial
+          <meshStandardMaterial 
+            attach="material"
             color={i % 2 === 0 ? '#f54298' : '#41e0de'}
             transparent
             opacity={0.6}
