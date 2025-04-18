@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, User, Code } from "lucide-react";
 import FloatingSocials from "./FloatingSocials";
+import ThreeBackground from "./ThreeBackground";
 
 const Hero = () => {
   const typingRef = useRef<HTMLDivElement>(null);
@@ -47,6 +48,8 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen relative flex flex-col justify-center items-center overflow-hidden">
+      <ThreeBackground />
+      
       <div
         className={`transition-all duration-1000 ${
           isVisible ? "opacity-100" : "opacity-0"
