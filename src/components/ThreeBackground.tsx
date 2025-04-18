@@ -28,6 +28,7 @@ const ThreeBackground = () => {
         width: '100%',
         height: '100%',
         pointerEvents: 'none',
+        zIndex: 0
       }}
     >
       <ambientLight intensity={0.5} />

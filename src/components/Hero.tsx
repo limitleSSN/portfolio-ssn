@@ -48,10 +48,12 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen relative flex flex-col justify-center items-center overflow-hidden">
-      <ThreeBackground />
+      <div className="absolute inset-0 -z-10">
+        <ThreeBackground />
+      </div>
       
       <div
-        className={`transition-all duration-1000 ${
+        className={`transition-all duration-1000 relative z-10 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -115,7 +117,7 @@ const Hero = () => {
 
       <FloatingSocials />
 
-      <div className="absolute bottom-10">
+      <div className="absolute bottom-10 z-10">
         <a 
           href="#about" 
           className="text-gray-400 hover:text-white relative group"
