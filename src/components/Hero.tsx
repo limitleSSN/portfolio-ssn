@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, User, Code } from "lucide-react";
 import FloatingSocials from "./FloatingSocials";
@@ -6,6 +5,7 @@ import FloatingSocials from "./FloatingSocials";
 const Hero = () => {
   const typingRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isBlurred, setIsBlurred] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -13,7 +13,6 @@ const Hero = () => {
     }, 300);
   }, []);
 
-  // Typing animation implementation
   const words = ["MERN stack developer.", "problem solver.", "tech enthusiast."];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
@@ -27,14 +26,13 @@ const Hero = () => {
 
       if (shouldDelete) {
         setCurrentText(currentWord.substring(0, currentText.length - 1));
-        setTypingSpeed(50); // faster when deleting
+        setTypingSpeed(50);
       } else {
         setCurrentText(currentWord.substring(0, currentText.length + 1));
-        setTypingSpeed(150); // slower when typing
+        setTypingSpeed(150);
       }
 
       if (!shouldDelete && currentText === currentWord) {
-        // Pause at the end of word
         setTimeout(() => setIsDeleting(true), 1500);
       } else if (shouldDelete && currentText === "") {
         setIsDeleting(false);
@@ -47,19 +45,23 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [currentText, currentWordIndex, isDeleting, typingSpeed, words]);
 
+  const handleArrowClick = () => {
+    setIsBlurred(true);
+    setTimeout(() => setIsBlurred(false), 1000);
+  };
+
   return (
     <section id="home" className="min-h-screen relative flex flex-col justify-center items-center overflow-hidden">
       <div
-        className={`transition-opacity duration-1000 ${
+        className={`transition-all duration-1000 ${
           isVisible ? "opacity-100" : "opacity-0"
-        }`}
+        } ${isBlurred ? "blur-sm" : ""}`}
       >
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-kunalblack/90" />
           <div className="absolute top-20 left-10 w-72 h-72 bg-kunalpink/20 rounded-full filter blur-3xl animate-pulse-slow" />
           <div className="absolute bottom-20 right-10 w-72 h-72 bg-kunalblue/20 rounded-full filter blur-3xl animate-pulse-slow" />
           
-          {/* Additional animated gradient orbs */}
           <div className="absolute top-1/4 right-1/4 w-48 h-48 bg-purple-500/10 rounded-full filter blur-3xl animate-float" style={{ animationDelay: "1s" }} />
           <div className="absolute bottom-1/3 left-1/3 w-36 h-36 bg-cyan-500/10 rounded-full filter blur-3xl animate-float" style={{ animationDelay: "2s" }} />
         </div>
@@ -113,11 +115,14 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Add FloatingSocials component */}
       <FloatingSocials />
 
-      <div className="absolute bottom-10 animate-bounce">
-        <a href="#about" className="text-gray-400 hover:text-white relative group">
+      <div className="absolute bottom-10">
+        <a 
+          href="#about" 
+          className="text-gray-400 hover:text-white relative group"
+          onClick={handleArrowClick}
+        >
           <ArrowDown size={24} className="group-hover:animate-pulse" />
           <span className="absolute w-8 h-8 bg-kunalpink/20 rounded-full -inset-2 transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
         </a>
