@@ -1,8 +1,6 @@
-
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, User, Code } from "lucide-react";
 import FloatingSocials from "./FloatingSocials";
-import ThreeBackground from "./ThreeBackground";
 
 const Hero = () => {
   const typingRef = useRef<HTMLDivElement>(null);
@@ -48,20 +46,11 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen relative flex flex-col justify-center items-center overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <ThreeBackground />
-      </div>
-      
-      <div
-        className={`transition-all duration-1000 relative z-10 ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
-      >
+      <div className={`transition-all duration-1000 relative z-10 ${isVisible ? "opacity-100" : "opacity-0"}`}>
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-kunalblack/90" />
           <div className="absolute top-20 left-10 w-72 h-72 bg-kunalpink/20 rounded-full filter blur-3xl animate-pulse-slow" />
           <div className="absolute bottom-20 right-10 w-72 h-72 bg-kunalblue/20 rounded-full filter blur-3xl animate-pulse-slow" />
-          
           <div className="absolute top-1/4 right-1/4 w-48 h-48 bg-purple-500/10 rounded-full filter blur-3xl animate-float" style={{ animationDelay: "1s" }} />
           <div className="absolute bottom-1/3 left-1/3 w-36 h-36 bg-cyan-500/10 rounded-full filter blur-3xl animate-float" style={{ animationDelay: "2s" }} />
         </div>
@@ -118,10 +107,7 @@ const Hero = () => {
       <FloatingSocials />
 
       <div className="absolute bottom-10 z-10">
-        <a 
-          href="#about" 
-          className="text-gray-400 hover:text-white relative group"
-        >
+        <a href="#about" className="text-gray-400 hover:text-white relative group">
           <ArrowDown size={24} className="group-hover:animate-pulse" />
           <span className="absolute w-8 h-8 bg-kunalpink/20 rounded-full -inset-2 transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
         </a>
