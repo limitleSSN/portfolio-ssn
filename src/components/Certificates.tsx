@@ -71,6 +71,28 @@ const certificatesData = [
     borderColor: "border-cyan-400",
     glowColor: "rgba(34, 211, 238, 0.5)"
   },
+  {
+    id: 7,
+    title: "Certificate of Participation",
+    issuer: "NxtWave CCBP 4.0 Academy",
+    date: "18-Mar-2025",
+    description: "For attending the Masterclass by Dr. Patrick Porter, Ph.D. Founder at BrainTap, on 'Brain Fitness for High Achievers' conducted exclusively for CCBP 4.0 Academy students",
+    image: "/lovable-uploads/74d8efea-2d08-4b4a-b8c6-4caa205e72bf.png",
+    icon: "Medal",
+    borderColor: "border-blue-500",
+    glowColor: "rgba(59, 130, 246, 0.5)"
+  },
+  {
+    id: 8,
+    title: "Certificate of Participation",
+    issuer: "NxtWave CCBP 4.0 Academy",
+    date: "09-Jan-2025",
+    description: "For attending the Masterclass by Ms. Lalitha Tallapragada, Associate Director, PepsiCo, on 'How to be the Most In-Demand Engineer in 2025?: Practical tips from PepsiCo's Leader' conducted exclusively for CCBP 4.0 Academy students",
+    image: "/lovable-uploads/181d51de-d43d-493c-a2a2-3a575cab9b7a.png",
+    icon: "Trophy",
+    borderColor: "border-rose-500",
+    glowColor: "rgba(244, 63, 94, 0.5)"
+  },
 ];
 
 const getIcon = (iconName: string) => {

@@ -29,17 +29,17 @@ const Social = () => {
   const linkedinStats = [
     {
       title: "Connections",
-      value: "1300+",
+      value: "1500+",
       icon: <Users size={24} className="text-kunalpink" />,
     },
     {
       title: "Followers",
-      value: "1300+",
+      value: "1500+",
       icon: <Users size={24} className="text-kunalblue" />,
     },
     {
       title: "Certifications",
-      value: "5+",
+      value: "10+",
       icon: <Award size={24} className="text-kunalpink" />,
     },
     {
