@@ -17,7 +17,7 @@ const Navbar = () => {
       }
 
       // Update active section based on scroll position
-      const sections = ["home", "about", "education", "skills", "projects", "social", "contact"];
+      const sections = ["home", "about", "education", "skills", "projects", "certificates", "social", "contact"];
       
       for (const sectionId of sections.reverse()) {
         const section = document.getElementById(sectionId);
@@ -38,6 +38,7 @@ const Navbar = () => {
     { name: "Education", href: "#education" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
+    { name: "Certificates", href: "#certificates" },
     { name: "Social", href: "#social" },
     { name: "Contact", href: "#contact" },
   ];

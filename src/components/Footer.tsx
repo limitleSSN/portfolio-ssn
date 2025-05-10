@@ -15,7 +15,7 @@ const Footer = () => {
               </a>
             </div>
             
-            <div className="flex space-x-6 mb-4 md:mb-0">
+            <div className="flex flex-wrap justify-center gap-4 mb-4 md:mb-0">
               <a href="#home" className="text-gray-400 hover:text-white transition-colors">
                 Home
               </a>
@@ -27,6 +27,9 @@ const Footer = () => {
               </a>
               <a href="#projects" className="text-gray-400 hover:text-white transition-colors">
                 Projects
+              </a>
+              <a href="#certificates" className="text-gray-400 hover:text-white transition-colors">
+                Certificates
               </a>
               <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
                 Contact
