@@ -1,15 +1,8 @@
 
 import { useState, useEffect } from "react";
-import { Award, ChevronLeft, ChevronRight, Star, Trophy, Medal } from "lucide-react";
+import { Award, Star, Trophy, Medal } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext
-} from "@/components/ui/carousel";
 
 const certificatesData = [
   {
@@ -92,7 +85,6 @@ const getIcon = (iconName: string) => {
 
 const Certificates = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
 
   useEffect(() => {
@@ -113,29 +105,9 @@ const Certificates = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleNext = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setActiveIndex((prev) => (prev === certificatesData.length - 1 ? 0 : prev + 1));
-    setTimeout(() => setIsAnimating(false), 500);
-  };
-
-  const handlePrev = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setActiveIndex((prev) => (prev === 0 ? certificatesData.length - 1 : prev - 1));
-    setTimeout(() => setIsAnimating(false), 500);
-  };
-
   const handleDotClick = (index: number) => {
-    if (isAnimating || index === activeIndex) return;
-    setIsAnimating(true);
     setActiveIndex(index);
-    setTimeout(() => setIsAnimating(false), 500);
   };
-
-  // Certificate display view - either grid or carousel
-  const [viewMode, setViewMode] = useState<'grid' | 'carousel'>('grid');
 
   return (
     <section id="certificates" className="py-20 bg-gradient-to-b from-kunalblack to-gray-900 relative overflow-hidden">
@@ -166,174 +138,84 @@ const Certificates = () => {
             <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-kunalblue rounded-full ml-4 transform origin-right animate-scale-in-line" style={{ animationDelay: '0.5s' }} />
           </div>
 
-          {/* View Mode Toggle */}
-          <div className="flex justify-center mb-8">
-            <div className="flex bg-gray-800/50 backdrop-blur-sm p-1 rounded-lg">
-              <button 
-                onClick={() => setViewMode('grid')} 
+          {/* Grid View */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {certificatesData.map((certificate, index) => (
+              <div 
+                key={certificate.id}
                 className={cn(
-                  "px-4 py-2 rounded transition-all duration-300",
-                  viewMode === 'grid' ? "bg-kunalpink text-white shadow-lg" : "text-gray-300 hover:text-white"
+                  "opacity-0 transform translate-y-8",
+                  visibleItems.includes(index) && "animate-fade-in"
                 )}
+                style={{ animationDelay: `${0.2 + index * 0.1}s`, animationFillMode: 'forwards' }}
               >
-                Grid View
-              </button>
-              <button 
-                onClick={() => setViewMode('carousel')} 
-                className={cn(
-                  "px-4 py-2 rounded transition-all duration-300",
-                  viewMode === 'carousel' ? "bg-kunalblue text-white shadow-lg" : "text-gray-300 hover:text-white"
-                )}
-              >
-                Carousel View
-              </button>
-            </div>
-          </div>
-
-          {viewMode === 'grid' ? (
-            // Grid View
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {certificatesData.map((certificate, index) => (
-                <div 
-                  key={certificate.id}
+                <Card 
                   className={cn(
-                    "opacity-0 transform translate-y-8",
-                    visibleItems.includes(index) && "animate-fade-in"
+                    "h-full border-2 group transition-all duration-500",
+                    certificate.borderColor,
+                    "bg-gray-900/70 backdrop-blur-sm hover:scale-[1.02]",
+                    "overflow-hidden relative"
                   )}
-                  style={{ animationDelay: `${0.2 + index * 0.1}s`, animationFillMode: 'forwards' }}
+                  style={{
+                    boxShadow: `0 0 20px ${certificate.glowColor}`,
+                    transition: "box-shadow 0.5s, transform 0.5s"
+                  }}
                 >
-                  <Card 
-                    className={cn(
-                      "h-full border-2 group transition-all duration-500",
-                      certificate.borderColor,
-                      "bg-gray-900/70 backdrop-blur-sm hover:scale-[1.02]",
-                      "overflow-hidden relative"
-                    )}
-                    style={{
-                      boxShadow: `0 0 20px ${certificate.glowColor}`,
-                      transition: "box-shadow 0.5s, transform 0.5s"
-                    }}
-                  >
-                    {/* Animated glow effect on hover */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none">
-                      <div className="absolute inset-0 bg-gradient-conic from-kunalpink via-purple-500 to-kunalblue animate-rotate-glow" />
+                  {/* Animated glow effect on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none">
+                    <div className="absolute inset-0 bg-gradient-conic from-kunalpink via-purple-500 to-kunalblue animate-rotate-glow" />
+                  </div>
+                  
+                  <div className="p-4 relative h-full flex flex-col">
+                    {/* Certificate Badge */}
+                    <div className="absolute top-4 right-4 z-10">
+                      <div className={cn(
+                        "p-2 rounded-full transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12",
+                        certificate.borderColor.replace('border', 'bg').replace('-500', '-500/20').replace('-400', '-400/20')
+                      )}>
+                        {getIcon(certificate.icon)}
+                      </div>
                     </div>
                     
-                    <div className="p-4 relative h-full flex flex-col">
-                      {/* Certificate Badge */}
-                      <div className="absolute top-4 right-4 z-10">
-                        <div className={cn(
-                          "p-2 rounded-full transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12",
-                          certificate.borderColor.replace('border', 'bg').replace('-500', '-500/20').replace('-400', '-400/20')
-                        )}>
-                          {getIcon(certificate.icon)}
-                        </div>
-                      </div>
-                      
-                      {/* Certificate Image */}
-                      <div className="w-full aspect-[4/3] mb-4 overflow-hidden rounded-lg">
-                        <img 
-                          src={certificate.image} 
-                          alt={certificate.title}
-                          className="w-full h-full object-contain object-center transition-transform duration-700 group-hover:scale-105"
-                        />
-                      </div>
-                      
-                      {/* Certificate Details with Animations */}
-                      <div className="flex-grow">
-                        <h3 className="text-xl font-bold mb-1 group-hover:text-kunalpink transition-colors duration-300">
-                          {certificate.title}
-                        </h3>
-                        <p className="text-gray-300 text-sm mb-2 opacity-90">{certificate.issuer} • {certificate.date}</p>
-                        <p className="text-gray-400 text-sm">{certificate.description}</p>
-                      </div>
+                    {/* Certificate Image */}
+                    <div className="w-full aspect-[4/3] mb-4 overflow-hidden rounded-lg">
+                      <img 
+                        src={certificate.image} 
+                        alt={certificate.title}
+                        className="w-full h-full object-contain object-center transition-transform duration-700 group-hover:scale-105"
+                      />
                     </div>
-                  </Card>
-                </div>
-              ))}
-            </div>
-          ) : (
-            // Carousel View
-            <div className="relative w-full max-w-4xl mx-auto">
-              <Carousel className="w-full">
-                <CarouselContent>
-                  {certificatesData.map((certificate) => (
-                    <CarouselItem key={certificate.id}>
-                      <div className="p-2">
-                        <Card 
-                          className={cn(
-                            "h-full border-2 group transition-all duration-500",
-                            certificate.borderColor,
-                            "bg-gray-900/70 backdrop-blur-sm overflow-hidden relative"
-                          )}
-                          style={{
-                            boxShadow: `0 0 30px ${certificate.glowColor}`,
-                            transition: "box-shadow 0.5s, transform 0.5s"
-                          }}
-                        >
-                          {/* Animated glow effect */}
-                          <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none">
-                            <div className="absolute inset-0 bg-gradient-conic from-kunalpink via-purple-500 to-kunalblue animate-rotate-glow" />
-                          </div>
-                          
-                          <div className="p-6 relative h-full flex flex-col">
-                            {/* Certificate Badge */}
-                            <div className="absolute top-4 right-4 z-10">
-                              <div className={cn(
-                                "p-2 rounded-full transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12",
-                                certificate.borderColor.replace('border', 'bg').replace('-500', '-500/20').replace('-400', '-400/20')
-                              )}>
-                                {getIcon(certificate.icon)}
-                              </div>
-                            </div>
-                            
-                            {/* Certificate Image */}
-                            <div className="w-full aspect-video mb-6 overflow-hidden rounded-lg">
-                              <img 
-                                src={certificate.image} 
-                                alt={certificate.title}
-                                className="w-full h-full object-contain object-center transition-transform duration-700 group-hover:scale-105"
-                              />
-                            </div>
-                            
-                            {/* Certificate Details */}
-                            <div className="flex-grow">
-                              <h3 className="text-2xl font-bold mb-2 group-hover:text-kunalpink transition-colors duration-300">
-                                {certificate.title}
-                              </h3>
-                              <p className="text-gray-300 mb-3">{certificate.issuer} • {certificate.date}</p>
-                              <p className="text-gray-400">{certificate.description}</p>
-                            </div>
-                          </div>
-                        </Card>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="left-0 bg-black/50 hover:bg-kunalpink/80 border-none" />
-                <CarouselNext className="right-0 bg-black/50 hover:bg-kunalblue/80 border-none" />
-              </Carousel>
-            </div>
-          )}
+                    
+                    {/* Certificate Details with Animations */}
+                    <div className="flex-grow">
+                      <h3 className="text-xl font-bold mb-1 group-hover:text-kunalpink transition-colors duration-300">
+                        {certificate.title}
+                      </h3>
+                      <p className="text-gray-300 text-sm mb-2 opacity-90">{certificate.issuer} • {certificate.date}</p>
+                      <p className="text-gray-400 text-sm">{certificate.description}</p>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            ))}
+          </div>
           
-          {/* Legacy Navigation Dots - Visible only in grid view for visual appeal */}
-          {viewMode === 'grid' && (
-            <div className="flex justify-center mt-12 space-x-2">
-              {certificatesData.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleDotClick(index)}
-                  className={cn(
-                    "transition-all duration-300",
-                    activeIndex === index 
-                      ? "bg-gradient-to-r from-kunalpink to-kunalblue w-8 h-3 rounded-full" 
-                      : "bg-gray-600 hover:bg-gray-400 w-3 h-3 rounded-full"
-                  )}
-                  aria-label={`Go to certificate ${index + 1}`}
-                />
-              ))}
-            </div>
-          )}
+          {/* Legacy Navigation Dots - Kept for visual appeal */}
+          <div className="flex justify-center mt-12 space-x-2">
+            {certificatesData.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={cn(
+                  "transition-all duration-300",
+                  activeIndex === index 
+                    ? "bg-gradient-to-r from-kunalpink to-kunalblue w-8 h-3 rounded-full" 
+                    : "bg-gray-600 hover:bg-gray-400 w-3 h-3 rounded-full"
+                )}
+                aria-label={`Go to certificate ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
