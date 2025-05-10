@@ -26,7 +26,7 @@ const certificatesData = [
     title: "Certificate of Participation",
     issuer: "NxtWave CCBP 4.0 Academy",
     date: "20-Feb-2025",
-    description: "For attending the Masterclass by Mr. Pranjal Singh, Staff Data Scientist, Udaan, on "Skills You Can't Ignore to get Exciting AI Jobs"",
+    description: "For attending the Masterclass by Mr. Pranjal Singh, Staff Data Scientist, Udaan, on 'Skills You Can't Ignore to get Exciting AI Jobs'",
     image: "/lovable-uploads/38e41d04-2a1f-4fde-9d07-af3c48095610.png",
   },
   {
