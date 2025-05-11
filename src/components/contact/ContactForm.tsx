@@ -71,8 +71,8 @@ const ContactForm = () => {
       setIsSubmitting(true);
       
       try {
-        // Save message to Supabase
-        const { error: supabaseError } = await supabase
+        // Save message to Supabase with better error handling
+        const { data, error: supabaseError } = await supabase
           .from('messages')
           .insert({
             name: formData.name,
@@ -80,39 +80,50 @@ const ContactForm = () => {
             message: formData.message
           });
           
-        if (supabaseError) throw supabaseError;
+        console.log("Supabase response:", data, supabaseError);
         
-        // Send email using FormSubmit service with correct configuration
-        const formSubmitEndpoint = "https://formsubmit.co/ajax/kunalvishwakarma208@gmail.com";
-        
-        const response = await fetch(formSubmitEndpoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            message: formData.message,
-            _subject: "New Contact Form Submission",
-            _captcha: "false",
-          }),
-        });
-        
-        const responseData = await response.json();
-        
-        if (!response.ok) {
-          throw new Error(responseData.message || "Failed to send email");
+        if (supabaseError) {
+          console.error("Supabase insertion error:", supabaseError);
+          throw supabaseError;
         }
         
-        console.log("Email submission response:", responseData);
+        // Email sending step using FormSubmit service
+        try {
+          const formSubmitEndpoint = "https://formsubmit.co/ajax/kunalvishwakarma208@gmail.com";
+          
+          const response = await fetch(formSubmitEndpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              name: formData.name,
+              email: formData.email,
+              message: formData.message,
+              _subject: "New Contact Form Submission",
+              _captcha: "false",
+            }),
+          });
+          
+          const responseData = await response.json();
+          
+          if (!response.ok) {
+            console.error("Email submission error:", responseData);
+            // Even if email fails, we already saved to database, so don't throw here
+          } else {
+            console.log("Email submission success:", responseData);
+          }
+        } catch (emailError) {
+          console.error("Error sending email:", emailError);
+          // Even if email fails, we've saved to database, so continue with success flow
+        }
         
         setSubmitSuccess(true);
         setFormData({ name: "", email: "", message: "" });
         toast({
           title: "Message sent!",
-          description: "Your message has been sent successfully. I'll get back to you soon!",
+          description: "Your message has been saved successfully. I'll get back to you soon!",
           variant: "default",
         });
         
