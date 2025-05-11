@@ -3,6 +3,12 @@ import { useState, useEffect } from "react";
 import { Award, Star, Trophy, Medal } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle
+} from "@/components/ui/dialog";
 
 const certificatesData = [
   {
@@ -118,8 +124,15 @@ const getIcon = (iconName: string) => {
 
 const Certificates = () => {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
+  const [selectedCertificate, setSelectedCertificate] = useState<(typeof certificatesData)[0] | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   useEffect(() => {
+    // Force all items to be visible initially to fix rendering issue
+    setVisibleItems(certificatesData.map((_, index) => index));
+    
+    // You can uncomment this block if you want staggered animation instead
+    /*
     // Initial animation for the certificates
     const timer = setTimeout(() => {
       setVisibleItems([0]);
@@ -135,7 +148,13 @@ const Certificates = () => {
     }, 300);
 
     return () => clearTimeout(timer);
+    */
   }, []);
+
+  const handleCertificateClick = (certificate: (typeof certificatesData)[0]) => {
+    setSelectedCertificate(certificate);
+    setIsDialogOpen(true);
+  };
 
   return (
     <section id="certificates" className="py-20 bg-gradient-to-b from-kunalblack to-gray-900 relative overflow-hidden">
@@ -176,13 +195,14 @@ const Certificates = () => {
                   visibleItems.includes(index) && "animate-fade-in"
                 )}
                 style={{ animationDelay: `${0.2 + index * 0.1}s`, animationFillMode: 'forwards' }}
+                onClick={() => handleCertificateClick(certificate)}
               >
                 <Card 
                   className={cn(
                     "h-full border-2 group transition-all duration-500",
                     certificate.borderColor,
                     "bg-gray-900/70 backdrop-blur-sm hover:scale-[1.02]",
-                    "overflow-hidden relative"
+                    "overflow-hidden relative cursor-pointer"
                   )}
                   style={{
                     boxShadow: `0 0 20px ${certificate.glowColor}`,
@@ -229,6 +249,67 @@ const Certificates = () => {
           </div>
         </div>
       </div>
+
+      {/* Certificate Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="bg-gray-900 border-2 border-kunalpink max-w-3xl w-[90vw] p-0 overflow-hidden">
+          {selectedCertificate && (
+            <>
+              <DialogHeader className="p-6 border-b border-gray-800">
+                <DialogTitle className="text-2xl gradient-heading kunalpink-glow">
+                  {selectedCertificate.title}
+                </DialogTitle>
+              </DialogHeader>
+              
+              <div className="relative p-6">
+                {/* Background effects */}
+                <div className="absolute inset-0 -z-10 opacity-20">
+                  <div className="absolute inset-0 bg-gradient-conic from-kunalpink via-purple-500 to-kunalblue animate-rotate-glow" />
+                </div>
+                
+                <div className="flex flex-col md:flex-row gap-6">
+                  {/* Certificate Image */}
+                  <div className="md:w-1/2 overflow-hidden rounded-xl border-2 border-gray-700 bg-black/50">
+                    <img
+                      src={selectedCertificate.image}
+                      alt={selectedCertificate.title}
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+                  
+                  {/* Certificate Details */}
+                  <div className="md:w-1/2">
+                    <div className="flex items-center mb-4">
+                      <div className={cn(
+                        "p-2 rounded-full mr-3",
+                        selectedCertificate.borderColor.replace('border', 'bg').replace('-500', '-500/20').replace('-400', '-400/20')
+                      )}>
+                        {getIcon(selectedCertificate.icon)}
+                      </div>
+                      <h3 className="text-xl font-semibold">{selectedCertificate.title}</h3>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="text-sm text-gray-400">Issuer</h4>
+                        <p className="text-kunalblue">{selectedCertificate.issuer}</p>
+                      </div>
+                      <div>
+                        <h4 className="text-sm text-gray-400">Date</h4>
+                        <p>{selectedCertificate.date}</p>
+                      </div>
+                      <div>
+                        <h4 className="text-sm text-gray-400">Description</h4>
+                        <p className="text-gray-300">{selectedCertificate.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
