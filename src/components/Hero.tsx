@@ -1,6 +1,6 @@
+
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, User, Code } from "lucide-react";
-import FloatingSocials from "./FloatingSocials";
 
 const Hero = () => {
   const typingRef = useRef<HTMLDivElement>(null);
@@ -103,8 +103,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      <FloatingSocials />
 
       <div className="absolute bottom-10 z-10">
         <a href="#about" className="text-gray-400 hover:text-white relative group">
