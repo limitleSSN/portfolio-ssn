@@ -7,66 +7,66 @@ import { Card } from "@/components/ui/card";
 const certificatesData = [
   {
     id: 1,
-    title: "Certificate of Accomplishment",
+    title: "Most In-Demand Engineer",
     issuer: "NxtWave CCBP 4.0 Academy",
-    date: "5-Nov-2024",
-    description: "For successfully completing Two industry-ready projects in two weeks as part of the Growth Cycle 1 BuildAThon",
-    image: "/lovable-uploads/4293cb27-0be0-489a-88ec-7fd66509b9e6.png",
-    icon: "Award",
+    date: "January 2025",
+    description: "For attending the Masterclass by Ms. Lalitha Tallapragada, Associate Director, PepsiCo, on 'How to be the Most In-Demand Engineer in 2025?'",
+    image: "https://cdn1.ccbp.in/misc/most-in-demand-engineer/ZYKYGHH0Z2.png",
+    icon: "Trophy",
     borderColor: "border-kunalpink",
-    glowColor: "kunalpink"
+    glowColor: "rgba(245, 66, 152, 0.5)"
   },
   {
     id: 2,
-    title: "Certificate of Completion",
+    title: "Brain Fitness for High Achievers",
     issuer: "NxtWave CCBP 4.0 Academy",
-    date: "08-Feb-2025",
-    description: "For Successfully Achieving the 5 Day Milestone, showcasing the skills of a Modern Age Developer in the NxtCode- AI-Powered Challenge: 25 Under 5",
-    image: "/lovable-uploads/6d8be2da-8ed7-44da-844a-25825d46cd28.png",
-    icon: "Trophy",
+    date: "March 2025",
+    description: "For attending the Masterclass by Dr. Patrick Porter, Ph.D. Founder at BrainTap, on 'Brain Fitness for High Achievers'",
+    image: "https://cdn1.ccbp.in/misc/podcast-brain-fitness-for-high-achievers-participation/7L33CFDMVZ.png",
+    icon: "Star",
     borderColor: "border-kunalblue",
-    glowColor: "kunalblue"
+    glowColor: "rgba(65, 224, 222, 0.5)"
   },
   {
     id: 3,
-    title: "Certificate of Participation",
+    title: "NxtCode 25Under5 Completion",
     issuer: "NxtWave CCBP 4.0 Academy",
-    date: "20-Feb-2025",
-    description: "For attending the Masterclass by Mr. Pranjal Singh, Staff Data Scientist, Udaan, on 'Skills You Can't Ignore to get Exciting AI Jobs'",
-    image: "/lovable-uploads/38e41d04-2a1f-4fde-9d07-af3c48095610.png",
-    icon: "Star",
+    date: "February 2025",
+    description: "For Successfully Achieving the 5 Day Milestone, showcasing the skills of a Modern Age Developer",
+    image: "https://cdn1.ccbp.in/misc/nxtcode25under5-completion/Z0OE45EDUK.png",
+    icon: "Award",
     borderColor: "border-purple-500",
     glowColor: "rgba(168, 85, 247, 0.5)"
   },
   {
     id: 4,
-    title: "Certificate of Participation",
+    title: "Certificate of Accomplishment",
     issuer: "NxtWave CCBP 4.0 Academy",
-    date: "08-Feb-2025",
-    description: "For participating in the NxtCode- AI-Powered Challenge: 25 Under 5",
-    image: "/lovable-uploads/82606a89-76b0-44e6-bee2-26c761507452.png",
+    date: "August 2024",
+    description: "For successfully completing projects in the BuildAThon",
+    image: "https://media.licdn.com/dms/image/v2/D4E22AQGvMH6QhXT1Sw/feedshare-shrink_800/feedshare-shrink_800/0/1730824111421?e=1749686400&v=beta&t=c9dlgvMcaUGqBfqoMCdLi9t2Xsrh3ypvAIunjSdzp8E",
     icon: "Medal",
     borderColor: "border-amber-400",
     glowColor: "rgba(251, 191, 36, 0.5)"
   },
   {
     id: 5,
-    title: "Consistent Champ",
+    title: "AI Jobs Skills Masterclass",
     issuer: "NxtWave CCBP 4.0 Academy",
-    date: "2025",
-    description: "#AIPoweredCoder - 5/5 DAYS - Finished the AI-Powered Challenge!",
-    image: "/lovable-uploads/34020e03-d57f-46a2-97d3-a3ef50d6557b.png",
+    date: "February 2025",
+    description: "For attending the Masterclass by Mr. Pranjal Singh, Staff Data Scientist, Udaan, on 'Skills You Can't Ignore to get Exciting AI Jobs'",
+    image: "https://cdn1.ccbp.in/misc/podcast-skills-you-cant-ignore-to-get-ai-jobs-participation/6THXMQT9II.png",
     icon: "Star",
     borderColor: "border-emerald-400",
     glowColor: "rgba(52, 211, 153, 0.5)"
   },
   {
     id: 6,
-    title: "Certificate of Participation",
-    issuer: "Infinity Personality Development",
-    date: "2024",
-    description: "Participation in Anveshan - Empowering Minds, Class of B.Tech. 2024-2028",
-    image: "/lovable-uploads/d91dc142-fdb1-4ac5-b4cb-7abf4742b1e4.png",
+    title: "NxtCode 25Under5 Participation",
+    issuer: "NxtWave CCBP 4.0 Academy",
+    date: "February 2025",
+    description: "For participating in the NxtCode- AI-Powered Challenge: 25 Under 5",
+    image: "https://cdn1.ccbp.in/misc/nxtcode25under5-participation/XPNDG1T1BV.png",
     icon: "Award",
     borderColor: "border-cyan-400",
     glowColor: "rgba(34, 211, 238, 0.5)"
@@ -75,24 +75,35 @@ const certificatesData = [
     id: 7,
     title: "Certificate of Participation",
     issuer: "NxtWave CCBP 4.0 Academy",
-    date: "18-Mar-2025",
-    description: "For attending the Masterclass by Dr. Patrick Porter, Ph.D. Founder at BrainTap, on 'Brain Fitness for High Achievers' conducted exclusively for CCBP 4.0 Academy students",
-    image: "/lovable-uploads/74d8efea-2d08-4b4a-b8c6-4caa205e72bf.png",
-    icon: "Medal",
+    date: "June 2024",
+    description: "For active participation in Featurethon 4.0 conducted exclusively for CCBP 4.0 Academy students",
+    image: "https://media.licdn.com/dms/image/v2/D4E22AQGFPHZrpwwEPg/feedshare-shrink_800/B4EZTg_7nqHcAo-/0/1738941656989?e=1749686400&v=beta&t=jZhbqUwGVON9UtEhKcGtXLwtgpy8Gu8i8ualypYtPUg",
+    icon: "Trophy",
     borderColor: "border-blue-500",
     glowColor: "rgba(59, 130, 246, 0.5)"
   },
   {
     id: 8,
-    title: "Certificate of Participation",
+    title: "Certificate of Completion",
     issuer: "NxtWave CCBP 4.0 Academy",
-    date: "09-Jan-2025",
-    description: "For attending the Masterclass by Ms. Lalitha Tallapragada, Associate Director, PepsiCo, on 'How to be the Most In-Demand Engineer in 2025?: Practical tips from PepsiCo's Leader' conducted exclusively for CCBP 4.0 Academy students",
-    image: "/lovable-uploads/181d51de-d43d-493c-a2a2-3a575cab9b7a.png",
-    icon: "Trophy",
+    date: "July 2024",
+    description: "In recognition of successful completion of tasks and projects in the CCBP 4.0 Academy",
+    image: "https://media.licdn.com/dms/image/v2/D4E22AQHp9QBeH1lWqA/feedshare-shrink_800/B4EZXw93N5GwAs-/0/1743504511844?e=1749686400&v=beta&t=M7wlh3uRXjyM69WIv8TsSQrNfTClRT0eG79229Mk8bU",
+    icon: "Medal",
     borderColor: "border-rose-500",
     glowColor: "rgba(244, 63, 94, 0.5)"
   },
+  {
+    id: 9,
+    title: "Anveshan Certificate",
+    issuer: "NxtWave CCBP 4.0 Academy",
+    date: "August 2024",
+    description: "For participation in the Anveshan program, empowering minds and fostering innovation",
+    image: "https://media.licdn.com/dms/image/v2/D4E22AQG_RLWY0NOMYA/feedshare-shrink_2048_1536/B4EZYq8eKLHgAw-/0/1744477218733?e=1749686400&v=beta&t=h5iRm3qn5kOc7csnQOjgTCrDgu5vUtcnW_A02NrE2vI",
+    icon: "Award",
+    borderColor: "border-orange-500",
+    glowColor: "rgba(249, 115, 22, 0.5)"
+  }
 ];
 
 const getIcon = (iconName: string) => {
@@ -106,7 +117,6 @@ const getIcon = (iconName: string) => {
 };
 
 const Certificates = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
 
   useEffect(() => {
@@ -126,10 +136,6 @@ const Certificates = () => {
 
     return () => clearTimeout(timer);
   }, []);
-
-  const handleDotClick = (index: number) => {
-    setActiveIndex(index);
-  };
 
   return (
     <section id="certificates" className="py-20 bg-gradient-to-b from-kunalblack to-gray-900 relative overflow-hidden">
@@ -219,23 +225,6 @@ const Certificates = () => {
                   </div>
                 </Card>
               </div>
-            ))}
-          </div>
-          
-          {/* Legacy Navigation Dots - Kept for visual appeal */}
-          <div className="flex justify-center mt-12 space-x-2">
-            {certificatesData.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleDotClick(index)}
-                className={cn(
-                  "transition-all duration-300",
-                  activeIndex === index 
-                    ? "bg-gradient-to-r from-kunalpink to-kunalblue w-8 h-3 rounded-full" 
-                    : "bg-gray-600 hover:bg-gray-400 w-3 h-3 rounded-full"
-                )}
-                aria-label={`Go to certificate ${index + 1}`}
-              />
             ))}
           </div>
         </div>

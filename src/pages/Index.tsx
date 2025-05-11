@@ -6,6 +6,7 @@ import EducationTimeline from "@/components/Education";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Social from "@/components/Social";
+import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -18,6 +19,7 @@ const Index = () => {
       <EducationTimeline />
       <Skills />
       <Projects />
+      <Certificates />
       <Social />
       <Contact />
       <Footer />
