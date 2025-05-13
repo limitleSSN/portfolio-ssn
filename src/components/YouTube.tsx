@@ -124,8 +124,8 @@ const YouTubeSection = () => {
             width="560" 
             height="315" 
             className="rounded-lg shadow-lg max-w-full border-2 border-kunalpink/30 hover:border-kunalblue/50 transition-all duration-500"
-            src="https://www.youtube.com/embed/videoseries?list=UUSk2eBeDLjTCrTqFAJgOWIQ" 
-            title="YouTube video player" 
+            src="https://www.youtube.com/embed/nqeWEQ4jcKg" 
+            title="YouTube short video" 
             frameBorder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowFullScreen
