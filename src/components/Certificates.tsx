@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Award, Star, Trophy, Medal } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -79,7 +78,7 @@ const certificatesData = [
   },
   {
     id: 7,
-    title: "Certificate of Participation",
+    title: "Featurethon 4.0 Participation",
     issuer: "NxtWave CCBP 4.0 Academy",
     date: "June 2024",
     description: "For active participation in Featurethon 4.0 conducted exclusively for CCBP 4.0 Academy students",
@@ -90,10 +89,10 @@ const certificatesData = [
   },
   {
     id: 8,
-    title: "Certificate of Completion",
+    title: "CCBP 4.0 - Certificate of Completion",
     issuer: "NxtWave CCBP 4.0 Academy",
     date: "July 2024",
-    description: "In recognition of successful completion of tasks and projects in the CCBP 4.0 Academy",
+    description: "In recognition of successfully completing tasks and projects in the CCBP 4.0 Academy program",
     image: "https://media.licdn.com/dms/image/v2/D4E22AQHp9QBeH1lWqA/feedshare-shrink_800/B4EZXw93N5GwAs-/0/1743504511844?e=1749686400&v=beta&t=M7wlh3uRXjyM69WIv8TsSQrNfTClRT0eG79229Mk8bU",
     icon: "Medal",
     borderColor: "border-rose-500",
@@ -101,10 +100,10 @@ const certificatesData = [
   },
   {
     id: 9,
-    title: "Anveshan Certificate",
+    title: "Anveshan Innovation Program",
     issuer: "NxtWave CCBP 4.0 Academy",
     date: "August 2024",
-    description: "For participation in the Anveshan program, empowering minds and fostering innovation",
+    description: "For successful participation in the Anveshan program, empowering minds and fostering innovation through project-based learning",
     image: "https://media.licdn.com/dms/image/v2/D4E22AQG_RLWY0NOMYA/feedshare-shrink_2048_1536/B4EZYq8eKLHgAw-/0/1744477218733?e=1749686400&v=beta&t=h5iRm3qn5kOc7csnQOjgTCrDgu5vUtcnW_A02NrE2vI",
     icon: "Award",
     borderColor: "border-orange-500",

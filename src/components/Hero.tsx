@@ -67,13 +67,13 @@ const Hero = () => {
             </h1>
             
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-300 mb-8 h-12">
-              <span>A passionate </span>
+              <span>A </span>
               <span className="gradient-heading" ref={typingRef}>{currentText}</span>
               <span className="inline-block w-1 h-8 ml-1 bg-kunalpink animate-pulse"></span>
             </h2>
 
             <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto animate-fade-in-left opacity-0" style={{ animationDelay: "300ms" }}>
-              Passionate about building modern, responsive websites with clean UI/UX.
+              Building modern, responsive websites with clean UI/UX.
               I'm currently sharpening my skills in the MERN stack and Data Structures using C++.
               With a love for learning and a dream to work at FAANG, I'm on a mission to turn ideas into impactful projects.
             </p>

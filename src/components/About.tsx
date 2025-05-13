@@ -80,7 +80,7 @@ const About = () => {
                   Who I Am
                 </h3>
                 <p className="text-gray-300 mb-6 leading-relaxed">
-                  I'm a first-year BTech CSE student specializing in Artificial Intelligence. As an aspiring MERN stack developer, I'm passionate about building modern, responsive websites with clean UI/UX.
+                  I'm a first-year BTech CSE student specializing in Artificial Intelligence. As an aspiring MERN stack developer, I'm focused on building modern, responsive websites with clean UI/UX.
                 </p>
                 <p className="text-gray-300 mb-6 leading-relaxed">
                   Currently sharpening my skills in the MERN stack and Data Structures using C++, I'm constantly learning and growing as a developer. With a love for learning and a dream to work at FAANG, I'm on a mission to turn ideas into impactful projects.
