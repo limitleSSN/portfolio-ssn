@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Youtube } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
@@ -17,7 +17,7 @@ const Navbar = () => {
       }
 
       // Update active section based on scroll position
-      const sections = ["home", "about", "education", "skills", "projects", "certificates", "social", "contact"];
+      const sections = ["home", "about", "education", "skills", "projects", "certificates", "youtube", "social", "contact"];
       
       for (const sectionId of sections.reverse()) {
         const section = document.getElementById(sectionId);
@@ -39,6 +39,7 @@ const Navbar = () => {
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Certificates", href: "#certificates" },
+    { name: "YouTube", href: "#youtube", icon: Youtube },
     { name: "Social", href: "#social" },
     { name: "Contact", href: "#contact" },
   ];
@@ -64,10 +65,11 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "nav-link relative px-2 py-1 transition-all duration-300",
+                  "nav-link relative px-2 py-1 transition-all duration-300 flex items-center gap-1",
                   activeSection === link.href.slice(1) ? "active" : ""
                 )}
               >
+                {link.icon && <link.icon size={16} className={link.name === "YouTube" ? "text-[#FF0000]" : ""} />}
                 {link.name}
                 {activeSection === link.href.slice(1) && (
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-kunalpink transition-all duration-300 animate-scale-in-line" />
@@ -100,13 +102,14 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               className={cn(
-                "text-xl font-medium relative px-2 py-1 transition-all duration-300",
+                "text-xl font-medium relative px-2 py-1 transition-all duration-300 flex items-center gap-2",
                 activeSection === link.href.slice(1) 
                   ? "text-kunalpink kunalpink-glow" 
                   : "text-gray-200 hover:text-white"
               )}
               onClick={() => setMobileMenuOpen(false)}
             >
+              {link.icon && <link.icon size={18} className={link.name === "YouTube" ? "text-[#FF0000]" : ""} />}
               {link.name}
               {activeSection === link.href.slice(1) && (
                 <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-kunalpink animate-scale-in-line" />

@@ -9,6 +9,7 @@ import Social from "@/components/Social";
 import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import YouTubeSection from "@/components/YouTube";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <Skills />
       <Projects />
       <Certificates />
+      <YouTubeSection />
       <Social />
       <Contact />
       <Footer />
