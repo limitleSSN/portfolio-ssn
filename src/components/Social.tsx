@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
-import { Linkedin, Users, Award, BookOpen, Instagram } from "lucide-react";
+import { Linkedin, Users, Award, BookOpen, Instagram, Youtube } from "lucide-react";
 
 const Social = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -106,6 +106,16 @@ const Social = () => {
                   >
                     <Linkedin size={20} className="mr-2" />
                     Connect on LinkedIn
+                  </a>
+                  
+                  <a
+                    href="https://youtube.com/@kunal_vish_08?si=5EMHBB93Or-wDz2a"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-3 rounded-full bg-[#FF0000] text-white font-medium transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,0,0,0.5)] inline-flex items-center"
+                  >
+                    <Youtube size={20} className="mr-2" />
+                    Subscribe on YouTube
                   </a>
                   
                   <a

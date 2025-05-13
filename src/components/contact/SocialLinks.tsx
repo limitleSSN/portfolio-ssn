@@ -1,5 +1,5 @@
 
-import { Github, Instagram, Linkedin } from "lucide-react";
+import { Github, Instagram, Linkedin, Youtube } from "lucide-react";
 import { motion } from "framer-motion";
 
 const SocialLinks = () => {
@@ -17,6 +17,13 @@ const SocialLinks = () => {
       label: "LinkedIn",
       bgClass: "bg-[#0A66C2] hover:bg-[#0A66C2]/80",
       hoverColor: "#0A66C2"
+    },
+    {
+      icon: <Youtube className="text-white" size={20} />,
+      url: "https://youtube.com/@kunal_vish_08?si=5EMHBB93Or-wDz2a",
+      label: "YouTube",
+      bgClass: "bg-[#FF0000] hover:bg-[#FF0000]/80",
+      hoverColor: "#FF0000"
     },
     {
       icon: <Instagram className="text-white" size={20} />,
