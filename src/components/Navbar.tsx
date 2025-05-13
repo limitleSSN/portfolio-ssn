@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Youtube } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
