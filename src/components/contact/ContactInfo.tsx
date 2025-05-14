@@ -1,5 +1,5 @@
 
-import { Mail, Phone, Github, Linkedin, Instagram } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Instagram, Twitter } from "lucide-react";
 import ContactCard from "./ContactCard";
 import SocialLinks from "./SocialLinks";
 import { motion } from "framer-motion";
@@ -21,8 +21,8 @@ const ContactInfo = () => {
     {
       icon: <Github className="text-kunalpink" size={20} />,
       label: "GitHub",
-      value: "github.com/dashboard",
-      link: "https://github.com/dashboard",
+      value: "github.com/kunalvish08",
+      link: "https://github.com/kunalvish08",
     },
     {
       icon: <Linkedin className="text-kunalblue" size={20} />,
@@ -35,6 +35,12 @@ const ContactInfo = () => {
       label: "Instagram",
       value: "kunal_vish_08",
       link: "https://www.instagram.com/kunal_vish_08?igsh=MXZ1eHF0Zjg4bGMwMA==",
+    },
+    {
+      icon: <Twitter className="text-kunalblue" size={20} />,
+      label: "Twitter",
+      value: "Kunal_Vish_08",
+      link: "https://x.com/Kunal_Vish_08",
     },
   ];
 

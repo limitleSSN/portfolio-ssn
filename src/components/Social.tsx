@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
-import { Linkedin, Users, Award, BookOpen, Instagram, Youtube } from "lucide-react";
+import { Linkedin, Users, Award, BookOpen, Instagram, Youtube, Twitter, Github } from "lucide-react";
 
 const Social = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -126,6 +126,26 @@ const Social = () => {
                   >
                     <Instagram size={20} className="mr-2" />
                     Follow on Instagram
+                  </a>
+                  
+                  <a
+                    href="https://github.com/kunalvish08"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-3 rounded-full bg-[#333] text-white font-medium transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(51,51,51,0.5)] inline-flex items-center"
+                  >
+                    <Github size={20} className="mr-2" />
+                    Follow on GitHub
+                  </a>
+                  
+                  <a
+                    href="https://x.com/Kunal_Vish_08"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-3 rounded-full bg-[#1DA1F2] text-white font-medium transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(29,161,242,0.5)] inline-flex items-center"
+                  >
+                    <Twitter size={20} className="mr-2" />
+                    Follow on Twitter
                   </a>
                 </div>
               </div>

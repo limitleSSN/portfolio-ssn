@@ -35,7 +35,7 @@ const Projects = () => {
       tags: ["HTML", "CSS", "JavaScript"],
       image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80",
       liveLink: "https://tourismwebkunal.ccbp.tech/",
-      githubLink: "https://github.com/dashboard",
+      githubLink: "https://github.com/kunalvish08",
     },
     {
       id: 2,
@@ -45,7 +45,7 @@ const Projects = () => {
       tags: ["React", "Tailwind CSS", "TypeScript"],
       image: "https://images.unsplash.com/photo-1508830524289-0adcbe822b40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80",
       liveLink: "#",
-      githubLink: "https://github.com/dashboard",
+      githubLink: "https://github.com/kunalvish08",
     },
   ];
 

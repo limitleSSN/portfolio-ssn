@@ -1,12 +1,12 @@
 
-import { Github, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Github, Instagram, Linkedin, Youtube, Twitter } from "lucide-react";
 import { motion } from "framer-motion";
 
 const SocialLinks = () => {
   const socialLinks = [
     {
       icon: <Github className="text-white" size={20} />,
-      url: "https://github.com/dashboard",
+      url: "https://github.com/kunalvish08",
       label: "GitHub",
       bgClass: "bg-gray-800 hover:bg-gray-700",
       hoverColor: "#f54298"
@@ -31,6 +31,13 @@ const SocialLinks = () => {
       label: "Instagram",
       bgClass: "bg-gradient-to-r from-[#405DE6] via-[#E1306C] to-[#FFDC80]",
       hoverColor: "#E1306C"
+    },
+    {
+      icon: <Twitter className="text-white" size={20} />,
+      url: "https://x.com/Kunal_Vish_08",
+      label: "Twitter",
+      bgClass: "bg-[#1DA1F2] hover:bg-[#1DA1F2]/80",
+      hoverColor: "#1DA1F2"
     }
   ];
 
