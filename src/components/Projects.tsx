@@ -1,6 +1,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ExternalLink, Github } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -28,6 +36,35 @@ const Projects = () => {
 
   const projects = [
     {
+      id: 3,
+      title: "Smart Indoor Energy Optimization",
+      description:
+        "A smart IoT system that detects human presence and monitors ambient light to automatically control indoor appliances, optimizing energy usage and promoting sustainable living.",
+      tags: ["ESP32", "IoT", "Arduino", "MQTT", "ThingsBoard"],
+      images: [
+        "/lovable-uploads/2852dd30-22bc-4354-96f6-9208d2d0a87c.png",
+        "/lovable-uploads/693f1be4-bc3e-4603-a55c-f668ea85c5e4.png",
+        "/lovable-uploads/969f0c63-7b81-463f-a603-0dcc3ea0de04.png",
+        "/lovable-uploads/c9be8110-d395-4528-a6fb-e6d6ad723fe1.png",
+      ],
+      liveLink: "https://www.linkedin.com/posts/kunal-vishwakarma-975b26326_iiot-iotproject-smartenergy-activity-7328438785535336448-ZRfu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFJkc-kBsLqn8JdjN6LO2fLL42vcoy-kByA",
+      githubLink: "https://github.com/kunalvish08",
+      features: [
+        "Motion-based automation (PIR)",
+        "Light-sensitive switching (LDR)",
+        "Appliance control via relay",
+        "RGB LED for status indication",
+        "Real-time data monitoring on ThingsBoard",
+      ],
+      technologies: [
+        "ESP32 Microcontroller",
+        "PIR Sensor + LDR (Light Sensor)",
+        "Relay Module + RGB LED",
+        "Arduino IDE + MQTT Protocol",
+        "ThingsBoard for real-time IoT dashboard",
+      ],
+    },
+    {
       id: 1,
       title: "Tourism Website",
       description:
@@ -49,6 +86,26 @@ const Projects = () => {
     },
   ];
 
+  const FeatureList = ({ items, title }: { items: string[], title: string }) => (
+    <div className="mt-4">
+      <h4 className="text-lg font-semibold mb-2">{title}:</h4>
+      <ul className="space-y-1">
+        {items.map((item, index) => (
+          <motion.li 
+            key={index}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1 }}
+            className="flex items-center"
+          >
+            <span className="text-kunalpink mr-2">•</span>
+            {item}
+          </motion.li>
+        ))}
+      </ul>
+    </div>
+  );
+
   return (
     <section
       id="projects"
@@ -61,7 +118,7 @@ const Projects = () => {
             My <span className="gradient-heading">Projects</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-12">
             {projects.map((project, index) => (
               <div
                 key={project.id}
@@ -72,49 +129,121 @@ const Projects = () => {
                 }`}
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
-                <div className="relative group overflow-hidden rounded-xl card-hover border border-gray-800 bg-gray-900/80">
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90 z-10"></div>
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                    <p className="text-gray-300 mb-4 text-sm line-clamp-2">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full"
+                <div className="relative group overflow-hidden rounded-xl card-hover border border-gray-800 bg-gray-900/80 p-6">
+                  {project.id === 3 ? (
+                    // IoT Project with Carousel
+                    <div className="mb-6">
+                      <h3 className="text-2xl font-semibold mb-3 gradient-heading">{project.title}</h3>
+                      <p className="text-gray-300 mb-4">{project.description}</p>
+                      
+                      <Carousel className="w-full mt-6 mb-6 max-h-96">
+                        <CarouselContent>
+                          {project.images.map((image, i) => (
+                            <CarouselItem key={i}>
+                              <div className="p-1">
+                                <motion.div 
+                                  whileHover={{ scale: 1.02 }}
+                                  className="aspect-video flex items-center justify-center overflow-hidden rounded-lg"
+                                >
+                                  <img 
+                                    src={image} 
+                                    alt={`Project image ${i+1}`}
+                                    className="object-contain max-h-80 w-full rounded-lg"
+                                  />
+                                </motion.div>
+                              </div>
+                            </CarouselItem>
+                          ))}
+                        </CarouselContent>
+                        <CarouselPrevious className="left-2" />
+                        <CarouselNext className="right-2" />
+                      </Carousel>
+
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tags.map((tag) => (
+                          <motion.span
+                            key={tag}
+                            whileHover={{ scale: 1.05 }}
+                            className="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full"
+                          >
+                            {tag}
+                          </motion.span>
+                        ))}
+                      </div>
+
+                      <div className="md:grid md:grid-cols-2 gap-4">
+                        <FeatureList items={project.features} title="Key Features" />
+                        <FeatureList items={project.technologies} title="Built With" />
+                      </div>
+
+                      <div className="flex space-x-4 mt-6">
+                        <a
+                          href={project.liveLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center text-kunalpink hover:text-white transition-colors"
                         >
-                          {tag}
-                        </span>
-                      ))}
+                          <ExternalLink size={16} className="mr-1" />
+                          <span>View Project</span>
+                        </a>
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center text-kunalblue hover:text-white transition-colors"
+                        >
+                          <Github size={16} className="mr-1" />
+                          <span>Code</span>
+                        </a>
+                      </div>
                     </div>
-                    <div className="flex space-x-4">
-                      <a
-                        href={project.liveLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center text-kunalpink hover:text-white transition-colors"
-                      >
-                        <ExternalLink size={16} className="mr-1" />
-                        <span>Live Demo</span>
-                      </a>
-                      <a
-                        href={project.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center text-kunalblue hover:text-white transition-colors"
-                      >
-                        <Github size={16} className="mr-1" />
-                        <span>Code</span>
-                      </a>
-                    </div>
-                  </div>
+                  ) : (
+                    // Standard Project Card
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90 z-10"></div>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+                        <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                        <p className="text-gray-300 mb-4 text-sm line-clamp-2">
+                          {project.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="flex space-x-4">
+                          <a
+                            href={project.liveLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center text-kunalpink hover:text-white transition-colors"
+                          >
+                            <ExternalLink size={16} className="mr-1" />
+                            <span>Live Demo</span>
+                          </a>
+                          <a
+                            href={project.githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center text-kunalblue hover:text-white transition-colors"
+                          >
+                            <Github size={16} className="mr-1" />
+                            <span>Code</span>
+                          </a>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             ))}
