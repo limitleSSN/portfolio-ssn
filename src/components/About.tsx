@@ -50,24 +50,13 @@ const About = () => {
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-kunalpink to-kunalblue rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-1000"></div>
                 <div className="relative bg-gray-900 p-6 rounded-2xl flex flex-col items-center text-center h-full">
-                  <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={isVisible ? { scale: 1, opacity: 1 } : {}}
-                    transition={{ 
-                      type: "spring", 
-                      stiffness: 260, 
-                      damping: 20,
-                      delay: 0.3
-                    }}
-                    className="relative"
-                  >
-                    <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-kunalpink via-purple-500 to-kunalblue opacity-75 blur-sm animate-spin-slow"></div>
+                  <div className="relative">
                     <img
-                      src="/lovable-uploads/969f0c63-7b81-463f-a603-0dcc3ea0de04.png"
+                      src="/lovable-uploads/9ea527b0-cc6d-4a80-a1c1-1da896f1e959.png"
                       alt="Kunal Vishwakarma"
                       className="w-48 h-48 object-cover rounded-full mb-6 border-4 border-kunalblue relative z-10"
                     />
-                  </motion.div>
+                  </div>
                   <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={isVisible ? { y: 0, opacity: 1 } : {}}
