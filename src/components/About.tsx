@@ -68,7 +68,11 @@ const About = () => {
                       className="w-48 h-48 object-cover rounded-full mb-6 border-4 border-kunalblue relative z-10"
                     />
                   </motion.div>
-                  <div>
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={isVisible ? { y: 0, opacity: 1 } : {}}
+                    transition={{ delay: 0.5 }}
+                  >
                     <h3 className="text-xl font-semibold mb-2">Kunal Vishwakarma</h3>
                     <p className="text-gray-400 mb-4">BTech CSE (AI) Student</p>
                     <div className="flex items-center text-gray-400 mb-2">
@@ -79,7 +83,7 @@ const About = () => {
                       <GraduationCap size={16} className="mr-2 text-kunalpink" />
                       <span>Invertis University, Bareilly</span>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -106,7 +110,12 @@ const About = () => {
                   What I Do
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="flex items-start">
+                  <motion.div 
+                    className="flex items-start"
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={isVisible ? { x: 0, opacity: 1 } : {}}
+                    transition={{ delay: 0.7 }}
+                  >
                     <div className="mr-4 bg-kunalpink/20 p-3 rounded-lg">
                       <Code size={24} className="text-kunalpink" />
                     </div>
@@ -116,8 +125,13 @@ const About = () => {
                         Creating responsive websites with modern technologies and clean UI/UX principles.
                       </p>
                     </div>
-                  </div>
-                  <div className="flex items-start">
+                  </motion.div>
+                  <motion.div 
+                    className="flex items-start"
+                    initial={{ x: 20, opacity: 0 }}
+                    animate={isVisible ? { x: 0, opacity: 1 } : {}}
+                    transition={{ delay: 0.9 }}
+                  >
                     <div className="mr-4 bg-kunalblue/20 p-3 rounded-lg">
                       <User size={24} className="text-kunalblue" />
                     </div>
@@ -127,7 +141,7 @@ const About = () => {
                         Developing efficient solutions using data structures and algorithms in C++.
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
