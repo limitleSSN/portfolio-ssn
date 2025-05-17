@@ -1,6 +1,7 @@
 
 import { User, MapPin, GraduationCap, Code } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const About = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -49,21 +50,40 @@ const About = () => {
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-kunalpink to-kunalblue rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-1000"></div>
                 <div className="relative bg-gray-900 p-6 rounded-2xl flex flex-col items-center text-center h-full">
-                  <img
-                    src="/lovable-uploads/feefb229-d07e-4653-b00d-e1d232d73abc.png"
-                    alt="Kunal Vishwakarma"
-                    className="w-48 h-48 object-cover rounded-full mb-6 border-4 border-kunalblue"
-                  />
-                  <h3 className="text-xl font-semibold mb-2">Kunal Vishwakarma</h3>
-                  <p className="text-gray-400 mb-4">BTech CSE (AI) Student</p>
-                  <div className="flex items-center text-gray-400 mb-2">
-                    <MapPin size={16} className="mr-2 text-kunalpink" />
-                    <span>Varanasi, Uttar Pradesh, 221103</span>
-                  </div>
-                  <div className="flex items-center text-gray-400">
-                    <GraduationCap size={16} className="mr-2 text-kunalpink" />
-                    <span>Invertis University, Bareilly</span>
-                  </div>
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={isVisible ? { scale: 1, opacity: 1 } : {}}
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 260, 
+                      damping: 20,
+                      delay: 0.3
+                    }}
+                    className="relative"
+                  >
+                    <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-kunalpink via-purple-500 to-kunalblue opacity-75 blur-sm animate-spin-slow"></div>
+                    <img
+                      src="/lovable-uploads/61461eff-ce5a-483d-b03a-959b8d2c96bd.png"
+                      alt="Kunal Vishwakarma"
+                      className="w-48 h-48 object-cover rounded-full mb-6 border-4 border-kunalblue relative z-10"
+                    />
+                  </motion.div>
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={isVisible ? { y: 0, opacity: 1 } : {}}
+                    transition={{ delay: 0.5 }}
+                  >
+                    <h3 className="text-xl font-semibold mb-2">Kunal Vishwakarma</h3>
+                    <p className="text-gray-400 mb-4">BTech CSE (AI) Student</p>
+                    <div className="flex items-center text-gray-400 mb-2">
+                      <MapPin size={16} className="mr-2 text-kunalpink" />
+                      <span>Varanasi, Uttar Pradesh, 221103</span>
+                    </div>
+                    <div className="flex items-center text-gray-400">
+                      <GraduationCap size={16} className="mr-2 text-kunalpink" />
+                      <span>Invertis University, Bareilly</span>
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -90,7 +110,12 @@ const About = () => {
                   What I Do
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="flex items-start">
+                  <motion.div 
+                    className="flex items-start"
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={isVisible ? { x: 0, opacity: 1 } : {}}
+                    transition={{ delay: 0.7 }}
+                  >
                     <div className="mr-4 bg-kunalpink/20 p-3 rounded-lg">
                       <Code size={24} className="text-kunalpink" />
                     </div>
@@ -100,8 +125,13 @@ const About = () => {
                         Creating responsive websites with modern technologies and clean UI/UX principles.
                       </p>
                     </div>
-                  </div>
-                  <div className="flex items-start">
+                  </motion.div>
+                  <motion.div 
+                    className="flex items-start"
+                    initial={{ x: 20, opacity: 0 }}
+                    animate={isVisible ? { x: 0, opacity: 1 } : {}}
+                    transition={{ delay: 0.9 }}
+                  >
                     <div className="mr-4 bg-kunalblue/20 p-3 rounded-lg">
                       <User size={24} className="text-kunalblue" />
                     </div>
@@ -111,7 +141,7 @@ const About = () => {
                         Developing efficient solutions using data structures and algorithms in C++.
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
