@@ -52,7 +52,7 @@ const About = () => {
                 <div className="relative bg-gray-900 p-6 rounded-2xl flex flex-col items-center text-center h-full">
                   <div className="relative">
                     <img
-                      src="public/lovable-uploads/WhatsApp Image 2025-06-03 at 12.28.52_b1852ee6.png"
+                      src="lovable-uploads\WhatsApp Image 2025-06-03 at 12.28.52_b1852ee6.png"
                       alt="Soumya Sourav"
                       className="w-48 h-48 object-cover rounded-full mb-6 border-4 border-ssnblue relative z-10"
                     />
