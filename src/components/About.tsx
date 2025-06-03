@@ -1,5 +1,5 @@
 
-import { User, MapPin, GraduationCap, Code } from "lucide-react";
+import { User, MapPin, GraduationCap, Code, CircuitBoard } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -31,7 +31,7 @@ const About = () => {
     <section
       id="about"
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-kunalblack to-gray-900"
+      className="py-20 bg-gradient-to-b from-ssnblack to-gray-900"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
@@ -48,13 +48,13 @@ const About = () => {
               }`}
             >
               <div className="relative group">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-kunalpink to-kunalblue rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-ssnpink to-ssnblue rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-1000"></div>
                 <div className="relative bg-gray-900 p-6 rounded-2xl flex flex-col items-center text-center h-full">
                   <div className="relative">
                     <img
-                      src="/lovable-uploads/9ea527b0-cc6d-4a80-a1c1-1da896f1e959.png"
-                      alt="Kunal Vishwakarma"
-                      className="w-48 h-48 object-cover rounded-full mb-6 border-4 border-kunalblue relative z-10"
+                      src="public/lovable-uploads/WhatsApp Image 2025-06-03 at 12.28.52_b1852ee6.png"
+                      alt="Soumya Sourav"
+                      className="w-48 h-48 object-cover rounded-full mb-6 border-4 border-ssnblue relative z-10"
                     />
                   </div>
                   <motion.div
@@ -62,15 +62,15 @@ const About = () => {
                     animate={isVisible ? { y: 0, opacity: 1 } : {}}
                     transition={{ delay: 0.5 }}
                   >
-                    <h3 className="text-xl font-semibold mb-2">Kunal Vishwakarma</h3>
-                    <p className="text-gray-400 mb-4">BTech CSE (AI) Student</p>
+                    <h3 className="text-xl font-semibold mb-2">Soumya Sourav</h3>
+                    <p className="text-gray-400 mb-4">Final Year EE Student</p>
                     <div className="flex items-center text-gray-400 mb-2">
-                      <MapPin size={16} className="mr-2 text-kunalpink" />
-                      <span>Varanasi, Uttar Pradesh, 221103</span>
+                      <MapPin size={16} className="mr-2 text-ssnpink" />
+                      <span>Bhubaneswar, Odisha</span>
                     </div>
                     <div className="flex items-center text-gray-400">
-                      <GraduationCap size={16} className="mr-2 text-kunalpink" />
-                      <span>Invertis University, Bareilly</span>
+                      <GraduationCap size={16} className="mr-2 text-ssnpink" />
+                      <span>NITR, Rourkela</span>
                     </div>
                   </motion.div>
                 </div>
@@ -86,14 +86,13 @@ const About = () => {
             >
               <div className="bg-gray-900/80 rounded-2xl p-6 h-full">
                 <h3 className="text-2xl font-semibold mb-6 gradient-heading">
-                  Who I Am
+                  My Summary
                 </h3>
                 <p className="text-gray-300 mb-6 leading-relaxed">
-                  I'm a first-year BTech CSE student specializing in Artificial Intelligence. As an aspiring MERN stack developer, I'm focused on building modern, responsive websites with clean UI/UX.
+                  I'm a passionate engineering student diving deep into VLSI, app development, and ML/AI.
                 </p>
                 <p className="text-gray-300 mb-6 leading-relaxed">
-                  Currently sharpening my skills in the MERN stack and Data Structures using C++, I'm constantly learning and growing as a developer. With a love for learning and a dream to work at FAANG, I'm on a mission to turn ideas into impactful projects.
-                </p>
+I love building cool projects like I2C protocols, disaster preparedness apps, and smart AI solutions using Verilog, MATLAB, Python, and Flutter. My work blends with real-world impact, creating innovative apps and machine learning models that make a difference.                </p>
 
                 <h3 className="text-2xl font-semibold mb-6 gradient-heading mt-8">
                   What I Do
@@ -105,13 +104,13 @@ const About = () => {
                     animate={isVisible ? { x: 0, opacity: 1 } : {}}
                     transition={{ delay: 0.7 }}
                   >
-                    <div className="mr-4 bg-kunalpink/20 p-3 rounded-lg">
-                      <Code size={24} className="text-kunalpink" />
+                    <div className="mr-4 bg-ssnpink/20 p-3 rounded-lg">
+                      <Code size={24} className="text-ssnpink" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-medium mb-2">Web Development</h4>
+                      <h4 className="text-lg font-medium mb-2">Software</h4>
                       <p className="text-gray-400">
-                        Creating responsive websites with modern technologies and clean UI/UX principles.
+                        Programming for applications, AI agents, and little bit of web development.
                       </p>
                     </div>
                   </motion.div>
@@ -121,13 +120,13 @@ const About = () => {
                     animate={isVisible ? { x: 0, opacity: 1 } : {}}
                     transition={{ delay: 0.9 }}
                   >
-                    <div className="mr-4 bg-kunalblue/20 p-3 rounded-lg">
-                      <User size={24} className="text-kunalblue" />
+                    <div className="mr-4 bg-ssnblue/20 p-3 rounded-lg">
+                      <CircuitBoard size={24} className="text-ssnblue" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-medium mb-2">Problem Solving</h4>
+                      <h4 className="text-lg font-medium mb-2">VLSI</h4>
                       <p className="text-gray-400">
-                        Developing efficient solutions using data structures and algorithms in C++.
+                        Develop digital circuits using Verilog, simulate them with Multisim, and implement them on FPGA boards.
                       </p>
                     </div>
                   </motion.div>

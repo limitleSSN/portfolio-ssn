@@ -1,46 +1,45 @@
 
 import { Mail, Phone, Github, Linkedin, Instagram, Twitter } from "lucide-react";
 import ContactCard from "./ContactCard";
-import SocialLinks from "./SocialLinks";
 import { motion } from "framer-motion";
 
 const ContactInfo = () => {
   const contactInfo = [
     {
-      icon: <Mail className="text-kunalpink" size={20} />,
+      icon: <Mail className="text-ssnpink" size={20} />,
       label: "Email",
-      value: "kunalvishwakarma208@gmail.com",
-      link: "mailto:kunalvishwakarma208@gmail.com",
+      value: "soumyasouravssn@gmail.com",
+      link: "mailto:soumyasouravssn@gmail.com",
     },
     {
-      icon: <Phone className="text-kunalblue" size={20} />,
+      icon: <Phone className="text-ssnblue" size={20} />,
       label: "Phone",
-      value: "+91 7985177849",
-      link: "tel:+917985177849",
+      value: "+91 7077949669",
+      link: "tel:+917077949669",
     },
     {
-      icon: <Github className="text-kunalpink" size={20} />,
+      icon: <Github className="text-ssnpink" size={20} />,
       label: "GitHub",
-      value: "github.com/kunalvish08",
-      link: "https://github.com/kunalvish08",
+      value: "https://github.com/limitleSSN",
+      link: "https://github.com/limitleSSN",
     },
     {
-      icon: <Linkedin className="text-kunalblue" size={20} />,
+      icon: <Linkedin className="text-ssnblue" size={20} />,
       label: "LinkedIn",
-      value: "Kunal Vishwakarma",
-      link: "https://www.linkedin.com/in/kunal-vishwakarma-975b26326",
+      value: "Soumya Sourav",
+      link: "https://www.linkedin.com/in/soumya-sourav-80abb8252",
     },
     {
-      icon: <Instagram className="text-kunalpink" size={20} />,
+      icon: <Instagram className="text-ssnpink" size={20} />,
       label: "Instagram",
-      value: "kunal_vish_08",
-      link: "https://www.instagram.com/kunal_vish_08?igsh=MXZ1eHF0Zjg4bGMwMA==",
+      value: "ssn12_11",
+      link: "https://www.instagram.com/ssn12_11?igsh=MTJrNjdtbjZwYWcxZA==",
     },
     {
-      icon: <Twitter className="text-kunalblue" size={20} />,
+      icon: <Twitter className="text-ssnblue" size={20} />,
       label: "Twitter",
-      value: "Kunal_Vish_08",
-      link: "https://x.com/Kunal_Vish_08",
+      value: "Socially_SSN",
+      link: "https://x.com/Socially_SSN?t=PHbhp7KIjOyb_Hxmv3a0Vw&s=09",
     },
   ];
 
@@ -53,12 +52,12 @@ const ContactInfo = () => {
       whileHover={{ scale: 1.02 }}
     >
       {/* Decorative glowing circles */}
-      <div className="absolute -top-16 -left-16 w-32 h-32 bg-kunalpink/20 rounded-full blur-xl"></div>
-      <div className="absolute -bottom-16 -right-16 w-32 h-32 bg-kunalblue/20 rounded-full blur-xl"></div>
+      <div className="absolute -top-16 -left-16 w-32 h-32 bg-ssnpink/20 rounded-full blur-xl"></div>
+      <div className="absolute -bottom-16 -right-16 w-32 h-32 bg-ssnblue/20 rounded-full blur-xl"></div>
       
       <h3 className="text-2xl font-semibold mb-8 gradient-heading relative z-10">
         Contact Information
-        <span className="absolute -bottom-2 left-0 w-24 h-1 bg-gradient-to-r from-kunalpink to-kunalblue"></span>
+        <span className="absolute -bottom-2 left-0 w-24 h-1 bg-gradient-to-r from-ssnpink to-ssnblue"></span>
       </h3>
 
       <div className="space-y-6">
@@ -78,8 +77,6 @@ const ContactInfo = () => {
           </motion.div>
         ))}
       </div>
-
-      <SocialLinks />
     </motion.div>
   );
 };

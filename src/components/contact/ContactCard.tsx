@@ -17,7 +17,7 @@ const ContactCard = ({ icon, label, value, link }: ContactCardProps) => {
       transition={{ type: "spring", stiffness: 300 }}
     >
       <motion.div 
-        className="mr-4 bg-gray-800 p-3 rounded-lg group-hover:shadow-lg group-hover:shadow-kunalpink/10"
+        className="mr-4 bg-gray-800 p-3 rounded-lg group-hover:shadow-lg group-hover:shadow-ssnpink/10"
         whileHover={{ rotate: [0, -10, 10, -5, 0], scale: 1.1 }}
         transition={{ duration: 0.5 }}
       >
@@ -29,11 +29,11 @@ const ContactCard = ({ icon, label, value, link }: ContactCardProps) => {
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white hover:text-kunalpink transition-colors relative inline-block"
+          className="text-white hover:text-ssnpink transition-colors relative inline-block"
           whileHover={{ scale: 1.03 }}
         >
           {value}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-kunalpink to-kunalblue group-hover:w-full transition-all duration-300"></span>
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-ssnpink to-ssnblue group-hover:w-full transition-all duration-300"></span>
         </motion.a>
       </div>
     </motion.div>

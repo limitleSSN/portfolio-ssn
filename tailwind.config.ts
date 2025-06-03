@@ -63,9 +63,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				// Custom colors
-				kunalblack: "#030505",
-				kunalpink: "#f54298",
-				kunalblue: "#41e0de",
+				ssnblack: "#030505",
+				ssnpink: "#f54298",
+				ssnblue: "#41e0de",
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

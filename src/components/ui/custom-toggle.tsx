@@ -58,9 +58,9 @@ const CustomToggle = ({
   };
 
   const colors = {
-    default: "bg-gray-700 active:bg-kunalblue",
-    pink: "bg-gray-700 active:bg-kunalpink",
-    blue: "bg-gray-700 active:bg-kunalblue",
+    default: "bg-gray-700 active:bg-ssnblue",
+    pink: "bg-gray-700 active:bg-ssnpink",
+    blue: "bg-gray-700 active:bg-ssnblue",
   };
 
   return (
@@ -75,9 +75,9 @@ const CustomToggle = ({
           "relative rounded-full flex items-center px-1 cursor-pointer transition-colors duration-300",
           colors[color],
           sizes[size],
-          isChecked && (color === "pink" ? "bg-kunalpink" : 
-                        color === "blue" ? "bg-kunalblue" : 
-                        "bg-kunalblue"),
+          isChecked && (color === "pink" ? "bg-ssnpink" : 
+                        color === "blue" ? "bg-ssnblue" : 
+                        "bg-ssnblue"),
           disabled && "opacity-50 cursor-not-allowed"
         )}
         disabled={disabled}

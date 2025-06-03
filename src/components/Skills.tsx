@@ -12,12 +12,18 @@ import {
   Laptop,
   Github,
   TerminalSquare,
-  Bot
+  Bot,
+  SplineIcon,
+  LucideSpline,
+  LucideActivity,
+  SnowflakeIcon,
+  VibrateIcon
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
 import { Card } from "@/components/ui/card";
+import { Sankey } from "recharts";
 
 // Skill type definition
 interface Skill {
@@ -25,7 +31,7 @@ interface Skill {
   icon: JSX.Element;
   color: string;
   description: string;
-  category: "frontend" | "backend" | "language" | "tool";
+  category: "Development" | "ML/AI" | "VLSI" | "tool";
 }
 
 const Skills = () => {
@@ -35,87 +41,87 @@ const Skills = () => {
 
   // Define all skills with categories and descriptions
   const skills: Skill[] = [
-    // Frontend Skills
+    // Development Skills
     {
       name: "HTML5",
       icon: <Code size={28} />,
       color: "text-orange-500",
       description: "Semantic markup and structure for web pages",
-      category: "frontend",
+      category: "Development",
     },
     {
-      name: "CSS3",
+      name: "Tailwind CSS",
       icon: <LayoutGrid size={28} />,
       color: "text-blue-500",
       description: "Styling and responsive design",
-      category: "frontend",
+      category: "Development",
     },
-    {
-      name: "Bootstrap",
-      icon: <MonitorSmartphone size={28} />,
-      color: "text-purple-500",
-      description: "Frontend framework for responsive designs",
-      category: "frontend",
-    },
-    {
-      name: "Flexbox",
-      icon: <LayoutGrid size={28} />,
-      color: "text-green-400",
-      description: "Advanced layout techniques",
-      category: "frontend",
+     {
+      name: "Vite",
+      icon: <VibrateIcon size={28} />,
+      color: "text-teal-400",
+      description: "3D CAD Design",
+      category: "tool",
     },
     {
       name: "JavaScript",
       icon: <FileCode size={28} />,
       color: "text-yellow-400",
       description: "Dynamic client-side scripting",
-      category: "frontend",
+      category: "Development",
     },
     {
       name: "React.js",
       icon: <Workflow size={28} />,
       color: "text-sky-500",
       description: "Component-based UI library",
-      category: "frontend",
+      category: "Development",
     },
     {
       name: "Next.js",
       icon: <CheckCircle size={28} />,
       color: "text-white",
       description: "React framework with SSR and more",
-      category: "frontend",
+      category: "Development",
     },
     
-    // Backend Skills
+    // ML/AI Skills
     {
       name: "Express.js",
       icon: <Server size={28} />,
       color: "text-gray-300",
       description: "Node.js web application framework",
-      category: "backend",
+      category: "ML/AI",
     },
     {
       name: "MongoDB",
       icon: <Database size={28} />,
       color: "text-green-500",
       description: "NoSQL document database",
-      category: "backend",
+      category: "ML/AI",
     },
     
-    // Programming Languages
+    // Programming VLSIs
     {
-      name: "C",
+      name: "Verilog",
       icon: <FileCode size={28} />,
       color: "text-blue-400",
-      description: "Procedural programming language",
-      category: "language",
+      description: "Procedural programming VLSI",
+      category: "VLSI",
     },
     {
-      name: "C++",
+      name: "Multisim",
       icon: <FileCode size={28} />,
       color: "text-blue-600",
-      description: "Object-oriented programming language",
-      category: "language",
+      description: "Object-oriented programming VLSI",
+      category: "VLSI",
+    },
+     {
+      name: "python",
+      icon: <SnowflakeIcon size={28} />,
+      color: "text-teal-400",
+      description: "3D CAD Design",
+      category: "tool",
     },
     
     // Tools
@@ -138,6 +144,20 @@ const Skills = () => {
       icon: <Bot size={28} />,
       color: "text-teal-400",
       description: "AI assistant for programming tasks",
+      category: "tool",
+    },
+    {
+      name: "Solidworks",
+      icon: <SplineIcon size={28} />,
+      color: "text-teal-400",
+      description: "3D CAD Design",
+      category: "tool",
+    },
+     {
+      name: "Xilinx Vivado",
+      icon: <LucideActivity size={28} />,
+      color: "text-teal-400",
+      description: "Synthesis and Simulation",
       category: "tool",
     },
   ];
@@ -171,9 +191,9 @@ const Skills = () => {
   // Categories for filtering
   const categories = [
     { id: "all", label: "All Skills" },
-    { id: "frontend", label: "Frontend" },
-    { id: "backend", label: "Backend" },
-    { id: "language", label: "Languages" },
+    { id: "Development", label: "Development" },
+    { id: "ML/AI", label: "ML/AI" },
+    { id: "VLSI", label: "VLSIs" },
     { id: "tool", label: "Tools" }
   ];
 
@@ -181,7 +201,7 @@ const Skills = () => {
     <section
       id="skills"
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-kunalblack to-gray-900"
+      className="py-20 bg-gradient-to-b from-ssnblack to-gray-900"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
@@ -202,7 +222,7 @@ const Skills = () => {
                 className={cn(
                   "px-4 py-2 rounded-full text-sm md:text-base transition-all duration-300",
                   activeFilter === category.id
-                    ? "bg-gradient-to-r from-kunalpink to-kunalblue text-white"
+                    ? "bg-gradient-to-r from-ssnpink to-ssnblue text-white"
                     : "bg-gray-800/50 text-gray-300 hover:bg-gray-700"
                 )}
               >
@@ -222,7 +242,7 @@ const Skills = () => {
               >
                 <HoverCard>
                   <HoverCardTrigger asChild>
-                    <Card className="flex flex-col items-center justify-center h-32 bg-gray-900/80 border border-gray-800 hover:border-kunalblue rounded-xl p-4 transition-all duration-300 hover:shadow-lg hover:shadow-kunalblue/10 hover:-translate-y-1 cursor-pointer">
+                    <Card className="flex flex-col items-center justify-center h-32 bg-gray-900/80 border border-gray-800 hover:border-ssnblue rounded-xl p-4 transition-all duration-300 hover:shadow-lg hover:shadow-ssnblue/10 hover:-translate-y-1 cursor-pointer">
                       <div className={cn("mb-3", skill.color)}>{skill.icon}</div>
                       <h3 className="text-sm font-medium text-gray-200">{skill.name}</h3>
                     </Card>

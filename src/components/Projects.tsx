@@ -21,83 +21,75 @@ const Projects = () => {
           observer.disconnect();
         }
       },
-      {
-        threshold: 0.2,
-      }
+      { threshold: 0.2 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   const projects = [
     {
       id: 3,
-      title: "Smart Indoor Energy Optimization",
+      title: "Dual Axis Solar Tracker",
       description:
-        "A smart IoT system that detects human presence and monitors ambient light to automatically control indoor appliances, optimizing energy usage and promoting sustainable living.",
-      tags: ["ESP32", "IoT", "Arduino", "MQTT", "ThingsBoard"],
+        "Developed a dual-axis solar tracker using the 8051 microcontroller to optimize solar panel positioning for maximum sunlight exposure",
+      tags: ["8051 microcontroller", "IoT", "Solidworks", "3d printing"],
       images: [
-        "/lovable-uploads/2852dd30-22bc-4354-96f6-9208d2d0a87c.png",
-        "/lovable-uploads/693f1be4-bc3e-4603-a55c-f668ea85c5e4.png",
-        "/lovable-uploads/969f0c63-7b81-463f-a603-0dcc3ea0de04.png",
-        "/lovable-uploads/c9be8110-d395-4528-a6fb-e6d6ad723fe1.png",
+        "public/lovable-uploads/WhatsApp Image 2025-01-31 at 22.23.09_8dd2afbd.jpg",
+        "public/lovable-uploads/WhatsApp Video 2025-01-31 at 22.28.41_b981b899.mp4",
       ],
-      liveLink: "https://www.linkedin.com/posts/kunal-vishwakarma-975b26326_iiot-iotproject-smartenergy-activity-7328438785535336448-ZRfu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFJkc-kBsLqn8JdjN6LO2fLL42vcoy-kByA",
-      githubLink: "https://github.com/kunalvish08",
+      githubLink: "https://github.com/limitleSSN/dual-axis-solar-tracker",
+      liveLink: "#",
       features: [
-        "Motion-based automation (PIR)",
+        "3d printed custom design",
         "Light-sensitive switching (LDR)",
-        "Appliance control via relay",
-        "RGB LED for status indication",
-        "Real-time data monitoring on ThingsBoard",
+        "Precise servo control",
+        "Calibrated delay",
+        "Real-time data monitoring",
       ],
       technologies: [
-        "ESP32 Microcontroller",
-        "PIR Sensor + LDR (Light Sensor)",
-        "Relay Module + RGB LED",
-        "Arduino IDE + MQTT Protocol",
-        "ThingsBoard for real-time IoT dashboard",
+        "8051 Microcontroller",
+        "Servo motors + LDR (Light Sensor)",
+        "3D printed polycarbonate design",
+        "Op-amp for better sensitivity",
       ],
     },
     {
       id: 1,
-      title: "Tourism Website",
+      title: "Two Key Lock System",
       description:
-        "A responsive tourism website showcasing various destinations and travel packages with interactive features.",
-      tags: ["HTML", "CSS", "JavaScript"],
-      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80",
-      liveLink: "https://tourismwebkunal.ccbp.tech/",
-      githubLink: "https://github.com/kunalvish08",
+        "Built a secure dual-password lock system requiring sequential password entry using over 30 logic gates. Utilized combinational logic and circuit design techniques to simulate reliable locking behavior",
+      tags: ["Multisim"],
+      image: "public/lovable-uploads/blackbg.png",
+      liveLink: "#",
+      githubLink: "https://github.com/limitleSSN/2tpassword",
     },
     {
       id: 2,
-      title: "Portfolio Website",
+      title: "SPI Master Controller",
       description:
-        "A personal portfolio website to showcase my skills, projects, and experience. Built with modern web technologies.",
-      tags: ["React", "Tailwind CSS", "TypeScript"],
-      image: "https://images.unsplash.com/photo-1508830524289-0adcbe822b40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80",
+        "Designed and implemented an 8-bit SPI Master Controller in Verilog, deployed on a Zynq-7000 FPGA (xc7z010clg225-1L), enabling seamless interfacing with SPI-enabled devices like the ADS1258 ADC.",
+      tags: ["Verilog", "Xilinx Vivado"],
+      image: "public/lovable-uploads/blackbg.png",
       liveLink: "#",
-      githubLink: "https://github.com/kunalvish08",
+      githubLink: "#",
     },
   ];
 
-  const FeatureList = ({ items, title }: { items: string[], title: string }) => (
+  const FeatureList = ({ items, title }: { items: string[]; title: string }) => (
     <div className="mt-4">
       <h4 className="text-lg font-semibold mb-2">{title}:</h4>
       <ul className="space-y-1">
         {items.map((item, index) => (
-          <motion.li 
+          <motion.li
             key={index}
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.1 }}
             className="flex items-center"
           >
-            <span className="text-kunalpink mr-2">•</span>
+            <span className="text-ssnpink mr-2">•</span>
             {item}
           </motion.li>
         ))}
@@ -109,7 +101,7 @@ const Projects = () => {
     <section
       id="projects"
       ref={sectionRef}
-      className="py-16 bg-gradient-to-b from-gray-900 to-kunalblack"
+      className="py-16 bg-gradient-to-b from-gray-900 to-ssnblack"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
@@ -117,34 +109,34 @@ const Projects = () => {
             My <span className="gradient-heading">Projects</span>
           </h2>
 
-          {/* IoT Project - Featured with Carousel */}
-          <div 
+          {/* Featured Project */}
+          <div
             className={`transition-all duration-700 mb-16 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <div className="relative group overflow-hidden rounded-xl card-hover border border-gray-800 bg-gray-900/80 p-5">
+            <div className="relative overflow-hidden rounded-xl border border-gray-800 bg-gray-900/80 p-5 min-h-[600px] flex flex-col justify-between">
               <h3 className="text-2xl font-semibold mb-3 gradient-heading">
                 {projects[0].title}
               </h3>
               <p className="text-gray-300 mb-4 max-w-3xl">
                 {projects[0].description}
               </p>
-              
-              <div className="flex flex-col md:flex-row md:gap-6">
-                <div className="md:w-1/2 mb-6">
-                  <Carousel className="w-full max-h-72">
+
+              <div className="flex flex-col md:flex-row gap-6 flex-grow">
+                <div className="md:w-1/2">
+                  <Carousel className="w-full h-64">
                     <CarouselContent>
                       {projects[0].images.map((image, i) => (
                         <CarouselItem key={i}>
                           <div className="p-1">
-                            <motion.div 
+                            <motion.div
                               whileHover={{ scale: 1.02 }}
-                              className="aspect-video flex items-center justify-center overflow-hidden rounded-lg"
+                              className="h-64 flex items-center justify-center overflow-hidden rounded-lg"
                             >
-                              <img 
-                                src={image} 
-                                alt={`Project image ${i+1}`}
+                              <img
+                                src={image}
+                                alt={`Project image ${i + 1}`}
                                 className="object-contain h-full w-full rounded-lg"
                               />
                             </motion.div>
@@ -169,29 +161,18 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <div className="md:w-1/2">
-                  <div className="grid grid-cols-1 gap-4">
-                    <FeatureList items={projects[0].features} title="Key Features" />
-                    <FeatureList items={projects[0].technologies} title="Built With" />
-                  </div>
+                <div className="md:w-1/2 flex flex-col justify-center">
+                  <FeatureList items={projects[0].features} title="Key Features" />
+                  <FeatureList items={projects[0].technologies} title="Built With" />
                 </div>
               </div>
 
               <div className="flex space-x-4 mt-4">
                 <a
-                  href={projects[0].liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center text-kunalpink hover:text-white transition-colors"
-                >
-                  <ExternalLink size={16} className="mr-1" />
-                  <span>View Project</span>
-                </a>
-                <a
                   href={projects[0].githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-kunalblue hover:text-white transition-colors"
+                  className="flex items-center text-ssnblue hover:text-white transition-colors"
                 >
                   <Github size={16} className="mr-1" />
                   <span>Code</span>
@@ -199,47 +180,44 @@ const Projects = () => {
               </div>
             </div>
           </div>
-          
-          {/* Other Projects in Row Layout */}
+
+          {/* Grid Projects */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.slice(1).map((project, index) => (
               <div
                 key={project.id}
                 className={`transition-all duration-700 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${(index + 1) * 200}ms` }}
               >
-                <div className="relative group overflow-hidden rounded-xl card-hover border border-gray-800 bg-gray-900/80 h-full">
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90 z-10"></div>
+                <div className="flex flex-col justify-between h-[600px] border border-gray-800 bg-gray-900/80 rounded-xl overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-64 object-cover"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                    <p className="text-gray-300 mb-4 text-sm line-clamp-2">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                  <div className="flex flex-col justify-between flex-grow p-5">
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                      <p className="text-gray-300 mb-4 text-sm">{project.description}</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                    <div className="flex space-x-4">
+                    <div className="flex space-x-4 mt-auto">
                       <a
                         href={project.liveLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center text-kunalpink hover:text-white transition-colors"
+                        className="flex items-center text-ssnpink hover:text-white transition-colors"
                       >
                         <ExternalLink size={16} className="mr-1" />
                         <span>Live Demo</span>
@@ -248,7 +226,7 @@ const Projects = () => {
                         href={project.githubLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center text-kunalblue hover:text-white transition-colors"
+                        className="flex items-center text-ssnblue hover:text-white transition-colors"
                       >
                         <Github size={16} className="mr-1" />
                         <span>Code</span>

@@ -89,7 +89,7 @@ const ContactForm = () => {
         
         // Email sending step using FormSubmit service
         try {
-          const formSubmitEndpoint = "https://formsubmit.co/ajax/kunalvishwakarma208@gmail.com";
+          const formSubmitEndpoint = "https://formsubmit.co/ajax/soumyasouravssn@gmail.com";
           
           const response = await fetch(formSubmitEndpoint, {
             method: "POST",
@@ -154,7 +154,7 @@ const ContactForm = () => {
     >
       <h3 className="text-2xl font-semibold mb-8 gradient-heading relative">
         Send Me a Message
-        <span className="absolute -bottom-2 left-0 w-24 h-1 bg-gradient-to-r from-kunalpink to-kunalblue"></span>
+        <span className="absolute -bottom-2 left-0 w-24 h-1 bg-gradient-to-r from-ssnpink to-ssnblue"></span>
       </h3>
 
       {submitSuccess ? (
@@ -183,7 +183,7 @@ const ContactForm = () => {
               onChange={handleChange}
               className={`w-full bg-gray-800 border ${
                 errors.name ? "border-red-500" : "border-gray-700"
-              } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-kunalpink shadow-lg`}
+              } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-ssnpink shadow-lg`}
               placeholder="Enter your name"
             />
             {errors.name && (
@@ -205,7 +205,7 @@ const ContactForm = () => {
               onChange={handleChange}
               className={`w-full bg-gray-800 border ${
                 errors.email ? "border-red-500" : "border-gray-700"
-              } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-kunalpink shadow-lg`}
+              } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-ssnpink shadow-lg`}
               placeholder="Enter your email"
             />
             {errors.email && (
@@ -227,7 +227,7 @@ const ContactForm = () => {
               rows={5}
               className={`w-full bg-gray-800 border ${
                 errors.message ? "border-red-500" : "border-gray-700"
-              } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-kunalpink resize-none shadow-lg`}
+              } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-ssnpink resize-none shadow-lg`}
               placeholder="Enter your message"
             ></motion.textarea>
             {errors.message && (
@@ -241,7 +241,7 @@ const ContactForm = () => {
             className={`w-full py-3 rounded-lg font-medium flex items-center justify-center transition-all ${
               isSubmitting
                 ? "bg-gray-700 cursor-not-allowed"
-                : "bg-gradient-to-r from-kunalpink to-kunalblue hover:shadow-[0_0_20px_rgba(245,66,152,0.5)]"
+                : "bg-gradient-to-r from-ssnpink to-ssnblue hover:shadow-[0_0_20px_rgba(245,66,152,0.5)]"
             }`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

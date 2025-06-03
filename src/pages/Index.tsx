@@ -5,11 +5,8 @@ import About from "@/components/About";
 import EducationTimeline from "@/components/Education";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
-import Social from "@/components/Social";
-import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import YouTubeSection from "@/components/YouTube";
 
 const Index = () => {
   return (
@@ -20,9 +17,6 @@ const Index = () => {
       <EducationTimeline />
       <Skills />
       <Projects />
-      <Certificates />
-      <YouTubeSection />
-      <Social />
       <Contact />
       <Footer />
     </div>

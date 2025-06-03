@@ -29,38 +29,38 @@ const EducationTimeline = () => {
   const education = [
     {
       id: 1,
-      years: "2024 – Present",
-      degree: "BTech in Computer Science & Engineering (AI)",
-      institution: "Invertis University, Bareilly",
-      icon: <GraduationCap size={24} className="text-kunalpink" />,
-      details: "Currently pursuing my Bachelor's degree in Computer Science with a specialization in Artificial Intelligence.",
+      years: "2022 – Present",
+      degree: "BTech in Electrical Engineering",
+      institution: "National Institute of Technology, Sector 1, Rourkel",
+      icon: <GraduationCap size={24} className="text-ssnpink" />,
+      details: "Currently pursuing my Bachelor's degree in Electrical Engineering along with extra-curricular involvements ",
     },
     {
       id: 2,
-      years: "2024 – Present",
-      degree: "Full Stack Development (MERN Stack)",
-      institution: "NXTWAVE",
-      icon: <Code size={24} className="text-kunalblue" />,
-      details: "Learning modern web development with MongoDB, Express, React, and Node.js to build full-stack applications.",
+      years: "May 2024 – July 2024",
+      degree: "Summer Intern",
+      institution: "Ministry of Railways",
+      icon: <Code size={24} className="text-ssnblue" />,
+      details: "Worked onsite at metro and railway stations, gaining hands-on experience with train traffic monitoring systems, signaling systems, and overall traffic management infrastructure within Indian Railways.",
     },
     {
       id: 3,
-      years: "2022",
+      years: "2021",
       degree: "Intermediate",
-      institution: "Kamlapati Boys Inter College, Varanasi, Uttar Pradesh",
-      percentage: "73.2%",
-      board: "UP Board",
-      icon: <School size={24} className="text-kunalblue" />,
-      details: "Completed my intermediate education with a focus on science and mathematics.",
+      institution: "DAV Chandrasekharpur, Bhubaneswar, Odisha",
+      percentage: "96.8%",
+      board: "CBSE",
+      icon: <School size={24} className="text-ssnblue" />,
+      details: "Completed my intermediate education with a focus on PCMB.",
     },
     {
       id: 4,
-      years: "2020",
+      years: "2019",
       degree: "High School",
-      institution: "Maa Saraswati Intermediar College, Varanasi, Uttar Pradesh",
-      percentage: "85.67%",
-      board: "UP Board",
-      icon: <Library size={24} className="text-kunalpink" />,
+      institution: "Kendriya Vidyalaya No 4, Niladrivihar, Bhubaneswar",
+      percentage: "95.2%",
+      board: "CBSE",
+      icon: <Library size={24} className="text-ssnpink" />,
       details: "Completed my high school education with excellent academic performance.",
     },
   ];
@@ -69,7 +69,7 @@ const EducationTimeline = () => {
     <section
       id="education"
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-gray-900 to-kunalblack"
+      className="py-20 bg-gradient-to-b from-gray-900 to-ssnblack"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
@@ -88,7 +88,7 @@ const EducationTimeline = () => {
                 }`}
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
-                <div className="bg-gray-900/80 border border-gray-800 rounded-lg p-6 ml-4 hover:border-kunalpink transition-all duration-300">
+                <div className="bg-gray-900/80 border border-gray-800 rounded-lg p-6 ml-4 hover:border-ssnpink transition-all duration-300">
                   <div className="flex items-center mb-4">
                     <div className="mr-4 bg-gray-800 p-3 rounded-lg">
                       {edu.icon}
@@ -103,17 +103,17 @@ const EducationTimeline = () => {
 
                   <div className="space-y-2 ml-16">
                     <div className="flex items-center text-gray-400">
-                      <Calendar size={16} className="mr-2 text-kunalblue" />
+                      <Calendar size={16} className="mr-2 text-ssnblue" />
                       <span>{edu.years}</span>
                     </div>
                     {edu.board && (
                       <p className="text-gray-400">
-                        <span className="text-kunalblue">Board:</span> {edu.board}
+                        <span className="text-ssnblue">Board:</span> {edu.board}
                       </p>
                     )}
                     {edu.percentage && (
                       <p className="text-gray-400">
-                        <span className="text-kunalblue">Percentage:</span>{" "}
+                        <span className="text-ssnblue">Percentage:</span>{" "}
                         {edu.percentage}
                       </p>
                     )}

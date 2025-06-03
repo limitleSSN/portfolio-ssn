@@ -1,5 +1,5 @@
 
-import { Heart } from "lucide-react";
+import { BookHeart, Heart, HeartOff, LucideMove3D } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <a href="#home" className="text-xl font-bold gradient-heading">
-                Kunal<span className="text-white">.</span>
+               SSN<span className="text-white">.</span>
               </a>
             </div>
             
@@ -28,9 +28,7 @@ const Footer = () => {
               <a href="#projects" className="text-gray-400 hover:text-white transition-colors">
                 Projects
               </a>
-              <a href="#certificates" className="text-gray-400 hover:text-white transition-colors">
-                Certificates
-              </a>
+             
               <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
                 Contact
               </a>
@@ -39,8 +37,8 @@ const Footer = () => {
             <div className="flex items-center">
               <p className="text-gray-400 text-sm">
                 © {currentYear} Made with 
-                <Heart size={14} className="inline-block mx-1 text-kunalpink" />
-                 by Kunal Vishwakarma
+                <BookHeart size={14} className="inline-block mx-1 text-ssnpink" />
+                 by Soumya Sourav
               </p>
             </div>
           </div>

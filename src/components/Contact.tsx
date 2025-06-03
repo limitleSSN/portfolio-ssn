@@ -41,7 +41,7 @@ const Contact = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-gray-900 to-kunalblack relative overflow-hidden"
+      className="py-20 bg-gradient-to-b from-gray-900 to-ssnblack relative overflow-hidden"
     >
       {/* 3D Particles Background */}
       <div className="absolute inset-0 z-0">
