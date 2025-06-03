@@ -37,7 +37,6 @@ const Projects = () => {
       tags: ["8051 microcontroller", "IoT", "Solidworks", "3d printing"],
       images: [
         "lovable-uploads/WhatsApp Image 2025-01-31 at 22.23.09_8dd2afbd.jpg",
-        "lovable-uploads/WhatsApp Video 2025-01-31 at 22.28.41_b981b899.mp4",
       ],
       githubLink: "https://github.com/limitleSSN/dual-axis-solar-tracker",
       liveLink: "#",
