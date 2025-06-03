@@ -4,8 +4,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 
@@ -36,8 +34,7 @@ const Projects = () => {
         "Developed a dual-axis solar tracker using the 8051 microcontroller to optimize solar panel positioning for maximum sunlight exposure",
       tags: ["8051 microcontroller", "IoT", "Solidworks", "3d printing"],
       images: [
-        "lovable-uploads/WhatsApp Video 2025-01-31 at 22.28.41_b981b899.mp4 ",
-        "lovable-uploads/WhatsApp Image 2025-01-31 at 22.23.10_c6dcb64e.jpg"
+        "lovable-uploads/WhatsApp Image 2025-01-31 at 22.23.10_c6dcb64e.jpg",
       ],
       githubLink: "https://github.com/limitleSSN/dual-axis-solar-tracker",
       liveLink: "#",
@@ -115,7 +112,7 @@ const Projects = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <div className="relative overflow-hidden rounded-xl border border-gray-800 bg-gray-900/80 p-5 min-h-[600px] flex flex-col justify-between">
+            <div className="relative overflow-hidden rounded-xl border border-gray-800 bg-gray-900/80 p-5 flex flex-col justify-between">
               <h3 className="text-2xl font-semibold mb-3 gradient-heading">
                 {projects[0].title}
               </h3>
@@ -144,11 +141,10 @@ const Projects = () => {
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    <CarouselPrevious className="left-2" />
-                    <CarouselNext className="right-2" />
+                    {/* Removed CarouselPrevious and CarouselNext */}
                   </Carousel>
 
-                  <div className="flex flex-wrap gap-2 mt-4">
+                  <div className="flex flex-wrap justify-center gap-2 mt-4">
                     {projects[0].tags.map((tag) => (
                       <motion.span
                         key={tag}
