@@ -36,7 +36,8 @@ const Projects = () => {
         "Developed a dual-axis solar tracker using the 8051 microcontroller to optimize solar panel positioning for maximum sunlight exposure",
       tags: ["8051 microcontroller", "IoT", "Solidworks", "3d printing"],
       images: [
-        "lovable-uploads/WhatsApp Image 2025-01-31 at 22.23.09_8dd2afbd.jpg",
+        "public/lovable-uploads/WhatsApp Video 2025-01-31 at 22.28.41_b981b899.mp4 ",
+        "public/lovable-uploads/WhatsApp Image 2025-01-31 at 22.23.10_c6dcb64e.jpg"
       ],
       githubLink: "https://github.com/limitleSSN/dual-axis-solar-tracker",
       liveLink: "#",
@@ -60,7 +61,7 @@ const Projects = () => {
       description:
         "Built a secure dual-password lock system requiring sequential password entry using over 30 logic gates. Utilized combinational logic and circuit design techniques to simulate reliable locking behavior",
       tags: ["Multisim"],
-      image: "lovable-uploads/blackbg.png",
+      image: "public/lovable-uploads/blackbg.png",
       liveLink: "#",
       githubLink: "https://github.com/limitleSSN/2tpassword",
     },
@@ -70,7 +71,7 @@ const Projects = () => {
       description:
         "Designed and implemented an 8-bit SPI Master Controller in Verilog, deployed on a Zynq-7000 FPGA (xc7z010clg225-1L), enabling seamless interfacing with SPI-enabled devices like the ADS1258 ADC.",
       tags: ["Verilog", "Xilinx Vivado"],
-      image: "lovable-uploads/blackbg.png",
+      image: "public/lovable-uploads/blackbg.png",
       liveLink: "#",
       githubLink: "#",
     },
